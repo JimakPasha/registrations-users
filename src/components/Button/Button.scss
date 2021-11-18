@@ -1,0 +1,15 @@
+.button {
+  padding: 0;
+  background: linear-gradient(180deg, rgba(24,203,172,1) 0%, rgba(15,197,167,1) 35%, rgba(4,191,161,1) 70%, rgba(0,178,149,1) 100%);
+  border-radius: 5px;
+  padding: 11px 35px;
+  border: none;
+  color: #fff;
+  font-size: 19px;
+  cursor: pointer;
+  transition: all .3s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
