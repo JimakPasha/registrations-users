@@ -1,0 +1,31 @@
+.forms-wrap {
+  margin-top: 34px;
+  padding: 34px 20px 60px 53px;
+  
+  &__list {
+    display: flex;
+  }
+  
+  &__title {
+    font-size: 40px;
+    font-weight: 300;
+    font-family: system-ui;
+    letter-spacing: 2.4px;
+    margin-bottom: 41px;
+  }
+  
+  &__navigations {
+    margin-left: 3px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  &__list {
+    font-size: 19px;
+  }
+  
+  &__item {
+    letter-spacing: 0.2px;
+    margin-right: 38px;
+    color: #b6b6b6;
+  }
+}
