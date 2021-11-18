@@ -1,7 +1,9 @@
 import React from 'react';
+import Header from './components/Header/Header';
+import './styles/global.scss';
 
 const App = () => {
-  return <p>init</p>;
+  return <Header />;
 };
 
 export default App;
