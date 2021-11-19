@@ -17,6 +17,7 @@
   &__navigations {
     margin-left: 3px;
     border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 17px;
   }
 
   &__list {
@@ -27,5 +28,19 @@
     letter-spacing: 0.2px;
     margin-right: 38px;
     color: #b6b6b6;
+  }
+
+  &__link--active {
+    color: #19cbac;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -21px;
+      width: 140%;
+      height: 4px;
+      background-color: #19cbac;
+    }
   }
 }

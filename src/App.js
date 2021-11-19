@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header/Header';
-// import StartPage from './components/pages/StartPage/StartPage';
+// import StartPage from './pages/StartPage/StartPage';
 import Footer from './components/Footer/Footer';
-import PersonFormPage from './components/pages/PersonFormPage/PersonFormPage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import './styles/global.scss';
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
       <main className="main">
         <div className="container">
           {/* <StartPage /> */}
-          <PersonFormPage />
+          <RegistrationPage />
         </div>
       </main>
       <Footer />

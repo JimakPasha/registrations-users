@@ -1,7 +1,8 @@
 import React from 'react';
-import './PersonFormPage.scss';
+import PersonRegistrationPage from '../PersonRegistrationPage/PersonRegistrationPage';
+import './RegistrationPage.scss';
 
-const PersonFormPage = () => {
+const RegistrationPage = () => {
   return (
     <div className="forms-wrap box">
       <div className="forms-wrap__header">
@@ -9,26 +10,27 @@ const PersonFormPage = () => {
         <nav className="forms-wrap__navigations">
           <ul className="forms-wrap__list">
             <li className="forms-wrap__item">
-              <a className="forms-wrap__links" href="/">
+              <a className="forms-wrap__link forms-wrap__link--active" href="/">
                 Личные данные
               </a>
             </li>
             <li className="forms-wrap__item">
-              <a className="forms-wrap__links" href="/">
+              <a className="forms-wrap__link" href="/">
                 Данные кредитной карты
               </a>
             </li>
             <li className="forms-wrap__item">
-              <a className="forms-wrap__links" href="/">
+              <a className="forms-wrap__link" href="/">
                 Результат
               </a>
             </li>
           </ul>
         </nav>
       </div>
+      <PersonRegistrationPage />
       <div className="form-wrap__footer">сюда кнопку</div>
     </div>
   );
 };
 
-export default PersonFormPage;
+export default RegistrationPage;
