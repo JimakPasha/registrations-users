@@ -82,3 +82,119 @@ a {
   background-color: #fff;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
+
+.field-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  height: 50px;
+  position: relative;
+
+  &__title {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding-top: 6px;
+  }
+
+  &__field {
+    font-size: 14px;
+    padding: 0 8px;
+    letter-spacing: 0.7px;
+    border: 2px solid #d3d3d3;
+    border-radius: 3px;
+    box-shadow: 0px 9px 34px -21px rgba(34, 60, 80, 0.09) inset;
+  }
+
+  &__input {
+    width: 410px;
+    height: 27px;
+  }
+
+  &__radio {
+    margin-left: 265px;
+    margin-top: 4px;
+  }
+
+  &__radio-label {
+    margin-right: 44px;
+    font-family: system-ui;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__radio-btn-hidden {
+    appearance: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    bottom: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    &:checked + .field-box__radio-btn-visible::before {
+      display: block;
+    }
+  }
+
+  &__radio-btn-visible {
+    position: absolute;
+    top: 0px;
+    left: -25px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d3d3d3;
+    border-radius: 50%;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #000;
+      display: none;
+    }
+  }
+
+  &__radio-label {
+    font-size: 14px;
+  }
+
+  &__textaria {
+    width: 410px;
+    height: 167px;
+    padding: 5px 8px;
+    resize: none;
+  }
+
+  &__error-text {
+    font-size: 12px;
+    position: absolute;
+    top: -17px;
+    right: 304px;
+    letter-spacing: -0.2px;
+    color: #fc3d11;
+  }
+
+  &__input-error {
+    border-color: #fc3d11;
+  }
+}
+
+.field-box-radio {
+  justify-content: start;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #f2f2f2;
+}
+
+.button-box {
+  margin-top: 20px;
+  margin-left: 270px;
+}
