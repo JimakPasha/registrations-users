@@ -1,5 +1,6 @@
 import React from 'react';
 import PersonRegistrationPage from '../PersonRegistrationPage/PersonRegistrationPage';
+import Chat from '../../components/Chat/Chat';
 import './RegistrationPage.scss';
 
 const RegistrationPage = () => {
@@ -33,6 +34,7 @@ const RegistrationPage = () => {
         </div>
         <PersonRegistrationPage />
       </div>
+      <Chat />
     </div>
   );
 };
