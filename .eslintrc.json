@@ -30,6 +30,7 @@
     "linebreak-style": ["error", "windows"],
     "indent": ["warn", 2, { "SwitchCase": 1}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-indent": [0, "tab"],
     "prettier/prettier": ["warn", {"endOfLine": "auto"}],
     "react/prop-types": "off",
