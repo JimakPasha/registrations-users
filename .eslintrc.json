@@ -35,6 +35,8 @@
     "prettier/prettier": ["warn", {"endOfLine": "auto"}],
     "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off"
   }
 }

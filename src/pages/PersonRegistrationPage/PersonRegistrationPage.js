@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createRegistrationsData } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Textarea from '../../components/Textarea/Textarea';
@@ -22,7 +24,7 @@ const validationSchema = yup.object({
 });
 
 const PersonRegistrationPage = () => {
-  const [setData] = useState();
+  const dispatch = useDispatch();
 
   return (
     <div className="person-reg-page">
@@ -47,7 +49,7 @@ const PersonRegistrationPage = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
-          setData(data);
+          dispatch(createRegistrationsData(data));
         }}
       >
         {(values, errors, isSubmitting) => (
@@ -89,9 +91,9 @@ const PersonRegistrationPage = () => {
             <Select name="country" title="Любимая футбольная команда:" />
             <div className="line"> </div>
             <div className="button-box">
-              <NavLink exact to="/card-data">
-                <Button name="Далee" disabled={isSubmitting} />
-              </NavLink>
+              {/* <NavLink exact to="/card-data"> */}
+              <Button name="Далee" disabled={isSubmitting} />
+              {/* </NavLink> */}
             </div>
           </Form>
         )}

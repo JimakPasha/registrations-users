@@ -23,17 +23,19 @@ const Chat = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessagesHistory((prev) => [
-      ...prev,
-      { id: nanoid(), message: messageUser, operator: false },
-    ]);
-    setMessageUser('');
-    setTimeout(() => {
+    if (messageUser) {
       setMessagesHistory((prev) => [
         ...prev,
-        messagesOperator[randomizerIndex()],
+        { id: nanoid(), message: messageUser, operator: false },
       ]);
-    }, 1000);
+      setMessageUser('');
+      setTimeout(() => {
+        setMessagesHistory((prev) => [
+          ...prev,
+          messagesOperator[randomizerIndex()],
+        ]);
+      }, 1000);
+    }
   };
 
   return (
