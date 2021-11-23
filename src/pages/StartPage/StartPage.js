@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import './StartPage.scss';
 
@@ -44,7 +45,9 @@ const StartPage = () => {
             </a>
             <p className="start-page__load-text">People-list.csv</p>
           </div>
-          <Button name="Далее" />
+          <NavLink exact to="/personal-data">
+            <Button name="Далее" />
+          </NavLink>
         </form>
       </div>
     </div>

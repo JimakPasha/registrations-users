@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { NavLink } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Textarea from '../../components/Textarea/Textarea';
@@ -88,7 +89,9 @@ const PersonRegistrationPage = () => {
             <Select name="country" title="Любимая футбольная команда:" />
             <div className="line"> </div>
             <div className="button-box">
-              <Button name="Далee" disabled={isSubmitting} />
+              <NavLink exact to="/card-data">
+                <Button name="Далee" disabled={isSubmitting} />
+              </NavLink>
             </div>
           </Form>
         )}

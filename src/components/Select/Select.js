@@ -7,7 +7,7 @@ const Select = ({ title, ...props }) => {
   return (
     <div className="field-box">
       <h5 className="field-box__title">{title}</h5>
-      <select {...field}>
+      <select {...field} className="field-box__select">
         <option>Беларусь</option>
         <option>Россия</option>
         <option>Украина</option>
