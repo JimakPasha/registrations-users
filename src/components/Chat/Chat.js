@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import messagesOperator from '../../mocks/messagesOperator';
+import AvatarOperator from '../AvatarOperator/AvatarOperator';
+import arrow from '../../assets/right-arrows.png';
 import './Chat.scss';
 
 const Chat = () => {
@@ -21,7 +23,10 @@ const Chat = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMessagesHistory((prev) => [...prev, messageUser]);
+    setMessagesHistory((prev) => [
+      ...prev,
+      { id: nanoid(), message: messageUser, operator: false },
+    ]);
     setMessageUser('');
     setTimeout(() => {
       setMessagesHistory((prev) => [
@@ -33,12 +38,25 @@ const Chat = () => {
 
   return (
     <div className="chat box">
+      <div className="chat__operator-conect">
+        <AvatarOperator />
+        <p className="chat__operator-connect-text">Анна в чате</p>
+        <div className="chat__operator-connect-state"> </div>
+      </div>
       <ul className="chat__list-messages">
-        {messagesHistory.map((item) => {
-          const id = nanoid();
-          return (
-            <li className="chat__list-item" key={id}>
-              {item}
+        {messagesHistory.map(({ id, message, operator }) => {
+          return operator ? (
+            <div className="chat__list-item-box">
+              <div className="chat__list-item-avatar">
+                <AvatarOperator />
+              </div>
+              <li className="chat__list-item admin" key={id}>
+                {message}
+              </li>
+            </div>
+          ) : (
+            <li className="chat__list-item user" key={id}>
+              {message}
             </li>
           );
         })}
@@ -49,9 +67,10 @@ const Chat = () => {
           placeholder="Ваше сообщение..."
           value={messageUser}
           onChange={(e) => setMessageUser(e.target.value)}
+          maxLength={40}
         />
         <button className="chat__form-btn" type="submit">
-          -
+          <img className="chat__form-btn-img" src={arrow} alt="arrow" />
         </button>
       </form>
     </div>
