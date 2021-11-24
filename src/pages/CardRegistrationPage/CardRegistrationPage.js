@@ -9,7 +9,7 @@ import Radio from '../../components/Radio/Radio';
 import Textarea from '../../components/Textarea/Textarea';
 import Select from '../../components/Select/Select';
 import Button from '../../components/Button/Button';
-import './PersonRegistrationPage.scss';
+import './CardRegistrationPage.scss';
 
 const validationSchema = yup.object({
   firstName: yup.string().required('Заполните это поле'),
@@ -23,7 +23,7 @@ const validationSchema = yup.object({
   phoneGirlfriend: yup.string().required('Заполните это поле'),
 });
 
-const PersonRegistrationPage = () => {
+const CardRegistrationPage = () => {
   const dispatch = useDispatch();
 
   return (
@@ -33,19 +33,10 @@ const PersonRegistrationPage = () => {
       </p>
       <Formik
         initialValues={{
-          firstName: '',
-          surName: '',
-          patronymic: '',
-          date: '',
-          sex: 'male',
-          country: 'Беларусь',
-          address: '',
-          motherlastName: '',
-          codeword: '',
-          infoAboutUs: '',
-          friendEmail: '',
-          phoneGirlfriend: '',
-          favorite: '',
+          cardNumber: '',
+          cardValidity: '',
+          cardCvc: '',
+          cardType: 'debit',
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
@@ -91,7 +82,7 @@ const PersonRegistrationPage = () => {
             <Select name="country" title="Любимая футбольная команда:" />
             <div className="line"> </div>
             <div className="button-box">
-              <NavLink exact to="/registration/card">
+              <NavLink exact to="/registration/result">
                 <Button name="Далee" disabled={isSubmitting} />
               </NavLink>
             </div>
@@ -102,4 +93,4 @@ const PersonRegistrationPage = () => {
   );
 };
 
-export default PersonRegistrationPage;
+export default CardRegistrationPage;

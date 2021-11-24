@@ -49,21 +49,19 @@
     display: flex;
   }
 
-  &__navigation-link--active {
-    color: #fff;
-  }
-
   &__navigation-item {
     font-size: 19px;
     padding: 5px 19px;
     letter-spacing: -0.1px;
+    transition: all 0.3s;
   }
 
   &__navigation-item--active {
-    background-color: #19CBAC;
+    background-color: #19cbac;
     border-right: 1px solid transparent;
-    border-top: 1px solid #19CBAC;
+    border-top: 1px solid #19cbac;
     position: relative;
+    color: #fff;
     &::before {
       content: '';
       position: absolute;

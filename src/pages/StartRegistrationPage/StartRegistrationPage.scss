@@ -1,0 +1,55 @@
+.start-reg-page {
+  &__box {
+    margin: 70px auto 0;
+    padding: 65px 20px 60px 60px;
+    width: 420px;
+  }
+
+  &__title {
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  &__form {
+    margin-left: 20px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+
+  &__label {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    cursor: pointer;
+  }
+
+  &__load-box {
+    margin-bottom: 40px;
+    display: flex;
+  }
+
+  &__load-link {
+    margin-left: 23px;
+    position: relative;
+    border-bottom: 1px dotted #19cbac;
+    margin-right: 20px;
+    color: #19cbac;
+    &::after {
+      content: '';
+      width: 1px;
+      height: 12px;
+      position: absolute;
+      bottom: 2px;
+      right: -10px;
+      background-color: #d5d5d5;
+    }
+  }
+
+  &__load-text {
+    letter-spacing: 0.4px;
+  }
+}
