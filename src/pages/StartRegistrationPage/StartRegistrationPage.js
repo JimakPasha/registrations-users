@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import './StartRegistrationPage.scss';
 
@@ -45,9 +44,7 @@ const StartRegistrationPage = () => {
             </a>
             <p className="start-reg-page__load-text">People-list.csv</p>
           </div>
-          <NavLink exact to="/registration/personal">
-            <Button name="Далее" />
-          </NavLink>
+          <Button name="Далее" to="/registration/personal" />
         </form>
       </div>
     </div>

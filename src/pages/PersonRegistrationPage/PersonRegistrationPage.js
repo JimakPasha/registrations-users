@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createRegistrationsData } from '../../redux/actions';
 import Input from '../../components/Input/Input';
@@ -52,7 +52,7 @@ const PersonRegistrationPage = () => {
           dispatch(createRegistrationsData(data));
         }}
       >
-        {(isSubmitting) => (
+        {(values, errors, isSubmitting) => (
           <Form>
             <Input name="firstName" type="input" title="Имя:" />
             <Input name="surName" type="input" title="Фамилия:" />
@@ -91,9 +91,11 @@ const PersonRegistrationPage = () => {
             <Select name="country" title="Любимая футбольная команда:" />
             <div className="line"> </div>
             <div className="button-box">
-              <NavLink exact to="/registration/card">
-                <Button name="Далee" disabled={isSubmitting} />
-              </NavLink>
+              <Button
+                name="Далee"
+                disabled={isSubmitting}
+                to="/registration/card"
+              />
             </div>
           </Form>
         )}
