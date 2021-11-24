@@ -1,8 +1,9 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createRegistrationsData } from '../../redux/actions';
+import { createRegistrationsCard } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
@@ -32,7 +33,7 @@ const CardRegistrationPage = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
-          dispatch(createRegistrationsData(data));
+          dispatch(createRegistrationsCard(data));
         }}
       >
         {(values, errors, isSubmitting) => (
@@ -59,11 +60,10 @@ const CardRegistrationPage = () => {
             </div>
             <div className="line"> </div>
             <div className="button-box">
-              <Button
-                name="Далee"
-                disabled={isSubmitting}
-                to="/registration/result"
-              />
+              <Button name="Далee" disabled={isSubmitting} />
+              <NavLink exact to="/registration/result">
+                Переход на след стр
+              </NavLink>
             </div>
           </Form>
         )}

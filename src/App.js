@@ -7,6 +7,7 @@ import StartPage from './pages/StartPage/StartPage';
 import RegistrationNavigations from './components/RegistrationNavigations/RegistrationNavigations';
 import PersonRegistrationPage from './pages/PersonRegistrationPage/PersonRegistrationPage';
 import CardRegistrationPage from './pages/CardRegistrationPage/CardRegistrationPage';
+import ResultRegistrationPage from './pages/ResultRegistrationPage/ResultRegistrationPage';
 import Chat from './components/Chat/Chat';
 import './styles/global.scss';
 
@@ -46,7 +47,7 @@ const App = () => {
                     <CardRegistrationPage />
                   </Route>
                   <Route exact path="/registration/result">
-                    <div>РЕЗУЛЬТАТ</div>
+                    <ResultRegistrationPage />
                   </Route>
                 </div>
                 <Chat />

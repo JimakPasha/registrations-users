@@ -38,6 +38,8 @@
     border-bottom: 1px dotted #19cbac;
     margin-right: 20px;
     color: #19cbac;
+    transition: all 0.3s;
+
     &::after {
       content: '';
       width: 1px;
@@ -46,6 +48,10 @@
       bottom: 2px;
       right: -10px;
       background-color: #d5d5d5;
+    }
+
+    &:hover {
+      border-color: transparent;
     }
   }
 

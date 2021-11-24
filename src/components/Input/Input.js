@@ -15,7 +15,7 @@ const Input = ({ title, ...props }) => {
             : 'field-box__input field-box__field'
         }
         {...field}
-        helperText={errorText}
+        helpertext={errorText}
         error={!!errorText}
       />
       {meta.touched && meta.error && (
