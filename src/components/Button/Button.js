@@ -1,13 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import './Button.scss';
 
-const Button = ({ name, disabled, to }) => {
+const Button = ({ name, disabled }) => {
   return (
     <button className="button" type="submit" disabled={disabled}>
-      <NavLink exact to={to}>
-        {name}
-      </NavLink>
+      {name}
     </button>
   );
 };

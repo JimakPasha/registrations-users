@@ -1,0 +1,112 @@
+.result-reg-page {
+  padding: 38px 10px 20px 55px;
+
+  &__title {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
+  }
+
+  &__btn.button-box {
+    margin-left: 203px;
+  }
+}
+
+.table {
+  &__row {
+    display: flex;
+  }
+
+  &__item {
+    height: 31px;
+    padding: 9px 12px 0;
+    margin-left: -1px;
+    margin-top: -1px;
+    border: 1px solid #d1d1d1;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    &:first-child {
+      border-top-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+    }
+  }
+
+  &__item-user {
+    height: 43px;
+    padding-top: 12px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+
+    &:first-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  .name {
+    width: 115px;
+  }
+
+  .surName {
+    width: 110px;
+  }
+
+  .patronymic {
+    width: 95px;
+  }
+
+  .date {
+    width: 133px;
+  }
+
+  .sex {
+    width: 91px;
+  }
+
+  .country {
+    width: 108px;
+  }
+
+  .info {
+    width: 133px;
+
+    &__text {
+      color: #19cbac;
+      border-bottom: 1px dotted #19cbac;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &__data-card {
+    display: inline-block;
+    margin: 35px 0 28px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    border-bottom: 1px dotted #19cbac;
+    color: #19cbac;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}

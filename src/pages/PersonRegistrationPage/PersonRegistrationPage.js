@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createRegistrationsData } from '../../redux/actions';
+import { createRegistrationsPersonal } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Textarea from '../../components/Textarea/Textarea';
@@ -37,7 +37,7 @@ const PersonRegistrationPage = () => {
           surName: '',
           patronymic: '',
           date: '',
-          sex: 'male',
+          sex: 'Мужской',
           country: 'Беларусь',
           address: '',
           motherlastName: '',
@@ -49,7 +49,7 @@ const PersonRegistrationPage = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
-          dispatch(createRegistrationsData(data));
+          dispatch(createRegistrationsPersonal(data));
         }}
       >
         {(values, errors, isSubmitting) => (
@@ -61,8 +61,18 @@ const PersonRegistrationPage = () => {
             <div className="field-box field-box-radio">
               <h5 className="field-box__title">Пол:</h5>
               <div className="field-box__radio">
-                <Radio name="sex" type="radio" value="male" title="Мужской" />
-                <Radio name="sex" type="radio" value="female" title="Женский" />
+                <Radio
+                  name="sex"
+                  type="radio"
+                  value="Мужской"
+                  title="Мужской"
+                />
+                <Radio
+                  name="sex"
+                  type="radio"
+                  value="Женский"
+                  title="Женский"
+                />
               </div>
             </div>
             <Select name="country" title="Страна проживания:" />
@@ -91,11 +101,10 @@ const PersonRegistrationPage = () => {
             <Select name="country" title="Любимая футбольная команда:" />
             <div className="line"> </div>
             <div className="button-box">
-              <Button
-                name="Далee"
-                disabled={isSubmitting}
-                to="/registration/card"
-              />
+              <Button name="Далee" disabled={isSubmitting} />
+              <NavLink exact to="/registration/card">
+                Переход на след стр
+              </NavLink>
             </div>
           </Form>
         )}
