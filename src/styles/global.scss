@@ -60,12 +60,15 @@ a {
   color: inherit;
 }
 
+.body {
+  background-color: #f1f1f1;
+}
+
 .app {
   height: 100%;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
-  background-color: #f1f1f1;
 }
 
 .container {
@@ -81,6 +84,10 @@ a {
 .box {
   background-color: #fff;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.wrapper-registrations {
+  display: flex;
 }
 
 .field-box {
@@ -189,12 +196,13 @@ a {
 }
 
 .line {
+  margin-top: 31px;
   width: 100%;
   height: 1px;
   background-color: #f2f2f2;
 }
 
 .button-box {
-  margin-top: 20px;
+  margin-top: 17px;
   margin-left: 270px;
 }
