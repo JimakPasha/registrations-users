@@ -82,6 +82,7 @@
     width: 133px;
 
     &__text {
+      position: relative;
       color: #19cbac;
       border-bottom: 1px dotted #19cbac;
       cursor: pointer;
@@ -94,6 +95,7 @@
   }
 
   &__data-card {
+    position: relative;
     display: inline-block;
     margin: 35px 0 28px;
     font-size: 14px;

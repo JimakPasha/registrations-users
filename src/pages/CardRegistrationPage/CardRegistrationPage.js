@@ -29,7 +29,7 @@ const CardRegistrationPage = () => {
           cardNumber: '',
           cardValidity: '',
           cardCvc: '',
-          cardType: 'debit',
+          cardType: 'Дебетовая',
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
@@ -47,13 +47,13 @@ const CardRegistrationPage = () => {
                 <Radio
                   name="cardType"
                   type="radio"
-                  value="debit"
+                  value="Дебетовая"
                   title="Дебетовая"
                 />
                 <Radio
                   name="cardType"
                   type="radio"
-                  value="credit"
+                  value="Кредитная"
                   title="Кредитная"
                 />
               </div>
