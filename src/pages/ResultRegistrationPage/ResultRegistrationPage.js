@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from '../../components/Button/Button';
+import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPersonalData';
+import PopoverCard from '../../components/PopoverCard/PopoverCard';
 import './ResultRegistrationPage.scss';
 
 const ResultRegistrationPage = () => {
+  const [popoverPersonalData, setPopoverPersonalData] = useState(false);
+  const [popoverCard, setPopoverCard] = useState(false);
+
   const dataUser = useSelector(
     (state) => state.dataRegestration.dataRegestration
   );
+
+  const openPopoverPersonalData = () => {
+    setPopoverPersonalData(true);
+  };
+
+  const closePopoverPersonalData = () => {
+    setPopoverPersonalData(false);
+  };
+
+  const openPopoverCard = () => {
+    setPopoverCard(true);
+  };
+
+  const closePopoverCard = () => {
+    setPopoverCard(false);
+  };
+
   return (
     <div className="result-reg-page box">
       <h4 className="result-reg-page__title">Личные данные</h4>
@@ -20,43 +42,91 @@ const ResultRegistrationPage = () => {
           <li className="table__item country">Страна</li>
           <li className="table__item info">Инфо</li>
         </ul>
-        <ul className="table__row">
-          <li className="table__item table__item-user name">s</li>
-          <li className="table__item table__item-user surName">s</li>
-          <li className="table__item table__item-user patronymic">s</li>
-          <li className="table__item table__item-user date">s</li>
-          <li className="table__item table__item-user sex">s</li>
-          <li className="table__item table__item-user country">s</li>
-          <li className="table__item table__item-user info">
-            <span className="info__text">Доп. инфо</span>
-          </li>
-        </ul>
         {dataUser.map(
-          ({ firstName, surName, patronymic, date, sex, country }) => {
+          ({
+            firstName,
+            surName,
+            patronymic,
+            date,
+            sex,
+            country,
+            address,
+            motherlastName,
+            codeword,
+            infoAboutUs,
+            friendEmail,
+            phoneGirlfriend,
+            favorite,
+            cardNumber,
+            cardValidity,
+            cardCvc,
+            cardType,
+          }) => {
             return (
-              <ul className="table__row">
-                <li className="table__item table__item-user name">
-                  {firstName}
-                </li>
-                <li className="table__item table__item-user surName">
-                  {surName}
-                </li>
-                <li className="table__item table__item-user patronymic">
-                  {patronymic}
-                </li>
-                <li className="table__item table__item-user date">{date}</li>
-                <li className="table__item table__item-user sex">{sex}</li>
-                <li className="table__item table__item-user country">
-                  {country}
-                </li>
-                <li className="table__item table__item-user info">
-                  <span className="info__text">Доп. инфо</span>
-                </li>
-              </ul>
+              <>
+                <ul className="table__row">
+                  <li className="table__item table__item-user name">
+                    {firstName}
+                  </li>
+                  <li className="table__item table__item-user surName">
+                    {surName}
+                  </li>
+                  <li className="table__item table__item-user patronymic">
+                    {patronymic}
+                  </li>
+                  <li className="table__item table__item-user date">{date}</li>
+                  <li className="table__item table__item-user sex">{sex}</li>
+                  <li className="table__item table__item-user country">
+                    {country}
+                  </li>
+                  <li className="table__item table__item-user info">
+                    <span
+                      className="info__text"
+                      onClick={openPopoverPersonalData}
+                      onMouseEnter={openPopoverPersonalData}
+                      onMouseLeave={closePopoverPersonalData}
+                      onKeyPress={openPopoverPersonalData}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      Доп. инфо
+                      {popoverPersonalData && (
+                        <PopoverPersonalData
+                          address={address}
+                          motherlastName={motherlastName}
+                          codeword={codeword}
+                          infoAboutUs={infoAboutUs}
+                          friendEmail={friendEmail}
+                          phoneGirlfriend={phoneGirlfriend}
+                          favorite={favorite}
+                        />
+                      )}
+                    </span>
+                  </li>
+                </ul>
+                <div
+                  className="table__data-card"
+                  onClick={openPopoverCard}
+                  onMouseEnter={openPopoverCard}
+                  onMouseLeave={closePopoverCard}
+                  onKeyPress={openPopoverCard}
+                  role="button"
+                  tabIndex={0}
+                >
+                  Данные кредитной карты
+                  {popoverCard && (
+                    <PopoverCard
+                      cardNumber={cardNumber}
+                      cardValidity={cardValidity}
+                      cardCvc={cardCvc}
+                      cardType={cardType}
+                    />
+                  )}
+                </div>
+              </>
             );
           }
         )}
-        <div className="table__data-card">Данные кредитной карты</div>
       </div>
       <div className="line"> </div>
       <div className="button-box result-reg-page__btn">

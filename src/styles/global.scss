@@ -206,3 +206,49 @@ a {
   margin-top: 17px;
   margin-left: 270px;
 }
+
+.popover {
+  position: absolute;
+  z-index: 1000;
+  padding: 26px 20px;
+  top: -166px;
+  left: 99px;
+  width: 313px;
+  height: 367px;
+  border-radius: 5px;
+  background-color: #636363;
+  color: #fff;
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 45%;
+    left: -14px;
+    border-top: 11px solid transparent;
+    border-right: 14px solid #636363;
+    border-bottom: 11px solid transparent;
+  }
+
+  &--card {
+    top: -111px;
+    left: 223px;
+    height: 238px;
+  }
+
+  &__item {
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-size: 12px;
+    letter-spacing: 0.2px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.8px;
+  }
+}
