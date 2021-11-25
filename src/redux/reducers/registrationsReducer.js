@@ -1,10 +1,12 @@
 import {
   RECEIVE_REGISTRATIONS_PERSONAL,
   RECEIVE_REGISTRATIONS_CARD,
+  REGISTRATION_METHOD,
 } from '../types';
 
 const initialState = {
   dataRegestration: [],
+  registrationMethod: '',
 };
 
 const registrationsReducer = (state = initialState, action) => {
@@ -21,6 +23,8 @@ const registrationsReducer = (state = initialState, action) => {
           Object.assign(...state.dataRegestration, action.payload),
         ],
       };
+    case REGISTRATION_METHOD:
+      return { ...state, registrationMethod: action.payload };
     default:
       return state;
   }
