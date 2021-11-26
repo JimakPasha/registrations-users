@@ -3,7 +3,10 @@ import { Formik, Form } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Papa from 'papaparse';
-import { checkRegistrationMethod } from '../../redux/actions';
+import {
+  checkRegistrationMethod,
+  registrationsUsersList,
+} from '../../redux/actions';
 import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
 import './StartRegistrationPage.scss';
@@ -17,7 +20,7 @@ const StartRegistrationPage = () => {
     const readerObj = new FileReader();
     readerObj.onload = function parse() {
       const result = Papa.parse(readerObj.result, { header: true });
-      console.log(result.data);
+      dispatch(registrationsUsersList(result.data));
     };
     readerObj.readAsText(input);
   };
@@ -72,13 +75,19 @@ const StartRegistrationPage = () => {
               )}
               <div className="button-box">
                 {values.values.registrationMethod === 'personal' ? (
-                  <NavLink exact to="/registration/personal">
+                  <>
+                    <NavLink exact to="/registration/personal">
+                      s
+                    </NavLink>
                     <Button name="Далее" />
-                  </NavLink>
+                  </>
                 ) : (
-                  <NavLink exact to="/registration/result">
+                  <>
+                    <NavLink exact to="/registration/result">
+                      s
+                    </NavLink>
                     <Button name="Далее" />
-                  </NavLink>
+                  </>
                 )}
               </div>
             </Form>

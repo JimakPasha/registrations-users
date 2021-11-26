@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createRegistrationsPersonal } from '../../redux/actions';
+import { registrationsUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Textarea from '../../components/Textarea/Textarea';
@@ -49,7 +49,7 @@ const PersonRegistrationPage = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
-          dispatch(createRegistrationsPersonal(data));
+          dispatch(registrationsUser(data));
         }}
       >
         {(values, errors, isSubmitting) => (

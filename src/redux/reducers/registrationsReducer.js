@@ -1,26 +1,28 @@
 import {
-  RECEIVE_REGISTRATIONS_PERSONAL,
-  RECEIVE_REGISTRATIONS_CARD,
+  RECEIVE_REGISTRATIONS_USER,
+  RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
 } from '../types';
 
 const initialState = {
-  dataRegestration: [],
   registrationMethod: '',
+  dataRegestration: {},
+  dataRegestrationUsersList: [],
 };
 
 const registrationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case RECEIVE_REGISTRATIONS_PERSONAL:
+    case RECEIVE_REGISTRATIONS_USER:
       return {
         ...state,
-        dataRegestration: [...state.dataRegestration, action.payload],
+        dataRegestration: { ...state.dataRegestration, ...action.payload },
       };
-    case RECEIVE_REGISTRATIONS_CARD:
+    case RECEIVE_REGISTRATIONS_USERS_LIST:
       return {
         ...state,
-        dataRegestration: [
-          Object.assign(...state.dataRegestration, action.payload),
+        dataRegestrationUsersList: [
+          ...state.dataRegestrationUsersList,
+          ...action.payload,
         ],
       };
     case REGISTRATION_METHOD:

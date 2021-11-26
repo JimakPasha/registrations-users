@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createRegistrationsCard } from '../../redux/actions';
+import { registrationsUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
@@ -33,7 +33,7 @@ const CardRegistrationPage = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
-          dispatch(createRegistrationsCard(data));
+          dispatch(registrationsUser(data));
         }}
       >
         {(values, errors, isSubmitting) => (
