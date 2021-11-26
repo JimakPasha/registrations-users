@@ -20,6 +20,7 @@
   &__radio-btns {
     display: flex;
     flex-direction: column;
+    margin-bottom: 17px;
     row-gap: 17px;
     margin-left: 45px;
     letter-spacing: 0.7px;
@@ -49,12 +50,13 @@
   &__load-label {
     cursor: pointer;
     position: relative;
+    margin-left: 14px;
   }
 
   &__load-title {
     color: #19cbac;
     position: absolute;
-    padding: 10px;
+    padding: 10px 5px 10px 20px;
     top: -11px;
     left: 10px;
     z-index: 10;
@@ -62,6 +64,7 @@
   }
 
   &__load-input {
+    padding-left: 29px;
     transition: all 0.3s;
 
     &::after {
@@ -72,6 +75,7 @@
       bottom: 2px;
       right: -10px;
       background-color: #d5d5d5;
+      font-size: 15px;
     }
 
     &:hover {
