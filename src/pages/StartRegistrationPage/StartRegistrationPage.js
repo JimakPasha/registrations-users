@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { csv } from 'd3';
+import Papa from 'papaparse';
 import { checkRegistrationMethod } from '../../redux/actions';
 import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
 import './StartRegistrationPage.scss';
 
 const StartRegistrationPage = () => {
-  const [dataUser, setDataUser] = useState();
+  const [loadFile, setLoadFile] = useState();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    csv('dataUsers.csv').then((data) => {
-      setDataUser(data);
-    });
-  }, []);
+  const upLoad = (e) => {
+    const input = e.target.files[0];
+    const readerObj = new FileReader();
+    readerObj.onload = function parse() {
+      const result = Papa.parse(readerObj.result, { header: true });
+      console.log(result.data);
+    };
+    readerObj.readAsText(input);
+  };
 
   return (
     <div className="start-reg-page">
@@ -61,6 +65,8 @@ const StartRegistrationPage = () => {
                     id="csv-uploads"
                     type="file"
                     accept=".csv"
+                    onChange={(e) => setLoadFile(upLoad(e))}
+                    value={loadFile}
                   />
                 </label>
               )}
