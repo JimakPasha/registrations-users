@@ -66,6 +66,15 @@ module.exports = {
         test: /\.(ttd|woff|woff2|eot)$/,
         use: ['file-loader'],
       },
+      {
+        test: /\.csv$/,
+        loader: 'csv-loader',
+        options: {
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true,
+        },
+      },
     ],
   },
   plugins: [
