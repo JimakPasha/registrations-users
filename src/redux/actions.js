@@ -1,19 +1,19 @@
 import {
-  RECEIVE_REGISTRATIONS_PERSONAL,
-  RECEIVE_REGISTRATIONS_CARD,
+  RECEIVE_REGISTRATIONS_USER,
+  RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
 } from './types';
 
-export function createRegistrationsPersonal(data) {
+export function registrationsUser(data) {
   return {
-    type: RECEIVE_REGISTRATIONS_PERSONAL,
+    type: RECEIVE_REGISTRATIONS_USER,
     payload: data,
   };
 }
 
-export function createRegistrationsCard(data) {
+export function registrationsUsersList(data) {
   return {
-    type: RECEIVE_REGISTRATIONS_CARD,
+    type: RECEIVE_REGISTRATIONS_USERS_LIST,
     payload: data,
   };
 }
