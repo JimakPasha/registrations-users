@@ -37,21 +37,23 @@ const App = () => {
               <Route exact path="/registration">
                 <StartRegistrationPage />
               </Route>
-              <div className="wrapper-registrations">
-                <div>
-                  <RegistrationNavigations />
-                  <Route exact path="/registration/personal">
-                    <PersonRegistrationPage />
-                  </Route>
-                  <Route exact path="/registration/card">
-                    <CardRegistrationPage />
-                  </Route>
-                  <Route exact path="/registration/result">
-                    <ResultRegistrationPage />
-                  </Route>
+              <>
+                <div className="wrapper-registrations">
+                  <div>
+                    <RegistrationNavigations />
+                    <Route exact path="/registration/personal">
+                      <PersonRegistrationPage />
+                    </Route>
+                    <Route exact path="/registration/card">
+                      <CardRegistrationPage />
+                    </Route>
+                    <Route exact path="/registration/result">
+                      <ResultRegistrationPage />
+                    </Route>
+                  </div>
+                  <Chat />
                 </div>
-                <Chat />
-              </div>
+              </>
             </Switch>
           </div>
         </main>

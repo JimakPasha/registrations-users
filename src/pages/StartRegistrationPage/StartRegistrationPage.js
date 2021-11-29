@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Papa from 'papaparse';
 import {
@@ -14,6 +14,7 @@ import './StartRegistrationPage.scss';
 const StartRegistrationPage = () => {
   const [loadFile, setLoadFile] = useState();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const upLoad = (e) => {
     const input = e.target.files[0];
@@ -32,10 +33,14 @@ const StartRegistrationPage = () => {
         <Formik
           initialValues={{
             registrationMethod: 'personal',
-            loadList: '',
           }}
           onSubmit={(data) => {
             dispatch(checkRegistrationMethod(data.registrationMethod));
+            if (data.registrationMethod === 'personal') {
+              history.push('/registration/personal');
+            } else {
+              history.push('/registration/result');
+            }
           }}
         >
           {(values, errors, isSubmitting) => (
@@ -74,21 +79,7 @@ const StartRegistrationPage = () => {
                 </label>
               )}
               <div className="button-box">
-                {values.values.registrationMethod === 'personal' ? (
-                  <>
-                    <NavLink exact to="/registration/personal">
-                      s
-                    </NavLink>
-                    <Button name="Далее" />
-                  </>
-                ) : (
-                  <>
-                    <NavLink exact to="/registration/result">
-                      s
-                    </NavLink>
-                    <Button name="Далее" />
-                  </>
-                )}
+                <Button name="Далее" />
               </div>
             </Form>
           )}

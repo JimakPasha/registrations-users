@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registrationsUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
@@ -25,6 +25,7 @@ const validationSchema = yup.object({
 
 const PersonRegistrationPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <div className="person-reg-page box">
@@ -50,6 +51,7 @@ const PersonRegistrationPage = () => {
         validationSchema={validationSchema}
         onSubmit={(data) => {
           dispatch(registrationsUser(data));
+          history.push('/registration/card');
         }}
       >
         {(values, errors, isSubmitting) => (
@@ -102,9 +104,6 @@ const PersonRegistrationPage = () => {
             <div className="line"> </div>
             <div className="button-box">
               <Button name="Далee" disabled={isSubmitting} />
-              <NavLink exact to="/registration/card">
-                Переход на след стр
-              </NavLink>
             </div>
           </Form>
         )}
