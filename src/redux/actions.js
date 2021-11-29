@@ -2,6 +2,7 @@ import {
   RECEIVE_REGISTRATIONS_USER,
   RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
+  EDIT,
 } from './types';
 
 export function registrationsUser(data) {
@@ -22,5 +23,12 @@ export function checkRegistrationMethod(data) {
   return {
     type: REGISTRATION_METHOD,
     payload: data,
+  };
+}
+
+export function edit(id) {
+  return {
+    type: EDIT,
+    payload: id,
   };
 }

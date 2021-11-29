@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { edit } from '../../redux/actions';
 import Button from '../../components/Button/Button';
 import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPersonalData';
 import PopoverCard from '../../components/PopoverCard/PopoverCard';
@@ -10,6 +11,7 @@ const ResultRegistrationPage = () => {
   const [popoverPersonalData, setPopoverPersonalData] = useState(false);
   const [popoverCard, setPopoverCard] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const dataUser = useSelector(
     (state) => state.dataRegestration.dataRegestration
@@ -39,7 +41,8 @@ const ResultRegistrationPage = () => {
     setPopoverCard(false);
   };
 
-  const editData = () => {
+  const editData = (id) => {
+    dispatch(edit(id));
     history.push('/registration/personal');
   };
 
@@ -146,8 +149,8 @@ const ResultRegistrationPage = () => {
                   <li className="table__item table__item-user info">
                     <span
                       className="info__text"
-                      onClick={editData()}
-                      onKeyPress={editData()}
+                      onClick={() => editData(id)}
+                      onKeyPress={() => editData(id)}
                       role="button"
                       tabIndex={0}
                     >
