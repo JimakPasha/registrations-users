@@ -20,6 +20,7 @@
   &__radio-btns {
     display: flex;
     flex-direction: column;
+    margin-bottom: 17px;
     row-gap: 17px;
     margin-left: 45px;
     letter-spacing: 0.7px;
@@ -49,20 +50,35 @@
   &__load-label {
     cursor: pointer;
     position: relative;
+    margin-left: 14px;
   }
 
   &__load-title {
     color: #19cbac;
+    font-size: 14px;
     position: absolute;
-    padding: 10px;
-    top: -11px;
+    padding: 10px 13px 10px 20px;
+    top: -9px;
     left: 10px;
+    letter-spacing: 0.5px;
     z-index: 10;
     background-color: #fff;
+    &::before {
+      position: absolute;
+      content: '';
+      bottom: 7px;
+      left: 19px;
+      width: 122px;
+      border-bottom: 1px dotted #19cbac;
+      background-color: #19cbac;
+    }
   }
 
   &__load-input {
+    padding-left: 43px;
     transition: all 0.3s;
+    font-size: 14px;
+    cursor: pointer;
 
     &::after {
       content: '';
@@ -70,8 +86,10 @@
       height: 12px;
       position: absolute;
       bottom: 2px;
-      right: -10px;
+      right: 149px;
       background-color: #d5d5d5;
+      font-size: 15px;
+      z-index: 10;
     }
 
     &:hover {
@@ -81,5 +99,10 @@
 
   &__load-text {
     letter-spacing: 0.4px;
+  }
+
+  .button-box {
+    margin-top: 38px;
+    margin-left: 12px;
   }
 }
