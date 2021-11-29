@@ -19,7 +19,8 @@ const StartRegistrationPage = () => {
 
   const upLoad = (e) => {
     const input = e.target.files[0];
-    const readerObj = new FileReader();
+    // eslint-disable-next-line prefer-const
+    let readerObj = new FileReader();
     readerObj.onload = function parse() {
       const result = Papa.parse(readerObj.result, { header: true });
       const arrData = result.data;

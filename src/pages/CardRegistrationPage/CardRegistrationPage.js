@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registrationsUser } from '../../redux/actions';
+import { registrationsUser, editUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
@@ -21,9 +21,11 @@ const CardRegistrationPage = () => {
   const history = useHistory();
   const isEdit = useSelector((state) => state.dataRegestration.isEdit);
   const editId = useSelector((state) => state.dataRegestration.editId);
-  const user = useSelector(
+  const users = useSelector(
     (state) => state.dataRegestration.dataRegestrationUsersList
-  ).find((item) => item.id === editId);
+  );
+  const user = users.find((item) => item.id === editId);
+  const newUsers = users.filter((item) => item.id !== user.id);
 
   return (
     <div className="person-reg-page box">
@@ -48,7 +50,11 @@ const CardRegistrationPage = () => {
         }
         validationSchema={validationSchema}
         onSubmit={(data) => {
-          dispatch(registrationsUser(data));
+          if (isEdit) {
+            dispatch(editUser([...newUsers, { ...user, ...data }]));
+          } else {
+            dispatch(registrationsUser(data));
+          }
           history.push('/registration/result');
         }}
       >

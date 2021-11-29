@@ -3,6 +3,7 @@ import {
   RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
   EDIT,
+  EDIT_USER,
 } from '../types';
 
 const initialState = {
@@ -37,6 +38,11 @@ const registrationsReducer = (state = initialState, action) => {
         isEdit: true,
         ...state.editId,
         editId: action.payload,
+      };
+    case EDIT_USER:
+      return {
+        ...state,
+        dataRegestrationUsersList: [...action.payload],
       };
     default:
       return state;
