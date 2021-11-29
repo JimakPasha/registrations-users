@@ -2,12 +2,15 @@ import {
   RECEIVE_REGISTRATIONS_USER,
   RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
+  EDIT,
 } from '../types';
 
 const initialState = {
   registrationMethod: '',
   dataRegestration: {},
   dataRegestrationUsersList: [],
+  isEdit: false,
+  editId: '',
 };
 
 const registrationsReducer = (state = initialState, action) => {
@@ -27,6 +30,14 @@ const registrationsReducer = (state = initialState, action) => {
       };
     case REGISTRATION_METHOD:
       return { ...state, registrationMethod: action.payload };
+    case EDIT:
+      return {
+        ...state,
+        ...state.isEdit,
+        isEdit: true,
+        ...state.editId,
+        editId: action.payload,
+      };
     default:
       return state;
   }

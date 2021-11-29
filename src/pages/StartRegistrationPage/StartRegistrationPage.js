@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Papa from 'papaparse';
+import { nanoid } from 'nanoid';
 import {
   checkRegistrationMethod,
   registrationsUsersList,
@@ -21,7 +22,10 @@ const StartRegistrationPage = () => {
     const readerObj = new FileReader();
     readerObj.onload = function parse() {
       const result = Papa.parse(readerObj.result, { header: true });
-      dispatch(registrationsUsersList(result.data));
+      const arrData = result.data;
+      // eslint-disable-next-line no-param-reassign
+      arrData.map((item) => (item.id = nanoid()));
+      dispatch(registrationsUsersList(arrData));
     };
     readerObj.readAsText(input);
   };

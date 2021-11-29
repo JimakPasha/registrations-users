@@ -2,7 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
 import { registrationsUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
@@ -26,6 +27,11 @@ const validationSchema = yup.object({
 const PersonRegistrationPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const isEdit = useSelector((state) => state.dataRegestration.isEdit);
+  const editId = useSelector((state) => state.dataRegestration.editId);
+  const user = useSelector(
+    (state) => state.dataRegestration.dataRegestrationUsersList
+  ).find((item) => item.id === editId);
 
   return (
     <div className="person-reg-page box">
@@ -33,21 +39,41 @@ const PersonRegistrationPage = () => {
         Все поля формы обязательны для заполнения
       </p>
       <Formik
-        initialValues={{
-          firstName: '',
-          surName: '',
-          patronymic: '',
-          date: '',
-          sex: 'Мужской',
-          country: 'Беларусь',
-          address: '',
-          motherlastName: '',
-          codeword: '',
-          infoAboutUs: '',
-          friendEmail: '',
-          phoneGirlfriend: '',
-          favorite: '',
-        }}
+        initialValues={
+          isEdit
+            ? {
+                firstName: user.firstName,
+                surName: user.surName,
+                patronymic: user.patronymic,
+                date: user.date,
+                sex: user.sex,
+                country: user.country,
+                address: user.address,
+                motherlastName: user.motherlastName,
+                codeword: user.codeword,
+                infoAboutUs: user.infoAboutUs,
+                friendEmail: user.friendEmail,
+                phoneGirlfriend: user.phoneGirlfriend,
+                favorite: user.favorite,
+                id: user.id,
+              }
+            : {
+                firstName: '',
+                surName: '',
+                patronymic: '',
+                date: '',
+                sex: 'Мужской',
+                country: 'Беларусь',
+                address: '',
+                motherlastName: '',
+                codeword: '',
+                infoAboutUs: '',
+                friendEmail: '',
+                phoneGirlfriend: '',
+                favorite: '',
+                id: nanoid(),
+              }
+        }
         validationSchema={validationSchema}
         onSubmit={(data) => {
           dispatch(registrationsUser(data));

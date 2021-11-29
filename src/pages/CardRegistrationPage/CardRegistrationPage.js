@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registrationsUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
@@ -19,6 +19,11 @@ const validationSchema = yup.object({
 const CardRegistrationPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const isEdit = useSelector((state) => state.dataRegestration.isEdit);
+  const editId = useSelector((state) => state.dataRegestration.editId);
+  const user = useSelector(
+    (state) => state.dataRegestration.dataRegestrationUsersList
+  ).find((item) => item.id === editId);
 
   return (
     <div className="person-reg-page box">
@@ -26,12 +31,21 @@ const CardRegistrationPage = () => {
         Все поля формы обязательны для заполнения
       </p>
       <Formik
-        initialValues={{
-          cardNumber: '',
-          cardValidity: '',
-          cardCvc: '',
-          cardType: 'Дебетовая',
-        }}
+        initialValues={
+          isEdit
+            ? {
+                cardNumber: user.cardNumber,
+                cardValidity: user.cardValidity,
+                cardCvc: user.cardCvc,
+                cardType: user.cardType,
+              }
+            : {
+                cardNumber: '',
+                cardValidity: '',
+                cardCvc: '',
+                cardType: 'Дебетовая',
+              }
+        }
         validationSchema={validationSchema}
         onSubmit={(data) => {
           dispatch(registrationsUser(data));
