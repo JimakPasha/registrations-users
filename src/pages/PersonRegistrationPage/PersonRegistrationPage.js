@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 import { registrationsUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
@@ -47,6 +48,7 @@ const PersonRegistrationPage = () => {
           friendEmail: '',
           phoneGirlfriend: '',
           favorite: '',
+          id: nanoid(),
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {

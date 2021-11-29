@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Button from '../../components/Button/Button';
 import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPersonalData';
@@ -8,6 +9,7 @@ import './ResultRegistrationPage.scss';
 const ResultRegistrationPage = () => {
   const [popoverPersonalData, setPopoverPersonalData] = useState(false);
   const [popoverCard, setPopoverCard] = useState(false);
+  const history = useHistory();
 
   const dataUser = useSelector(
     (state) => state.dataRegestration.dataRegestration
@@ -35,6 +37,10 @@ const ResultRegistrationPage = () => {
 
   const closePopoverCard = () => {
     setPopoverCard(false);
+  };
+
+  const editData = () => {
+    history.push('/registration/personal');
   };
 
   return (
@@ -120,9 +126,9 @@ const ResultRegistrationPage = () => {
           </>
         ) : (
           dataUsersList.map(
-            ({ firstName, surName, patronymic, sex, date, country }) => {
+            ({ id, firstName, surName, patronymic, sex, date, country }) => {
               return (
-                <ul className="table__row">
+                <ul className="table__row" key={id}>
                   <li className="table__item table__item-user name">
                     {firstName}
                   </li>
@@ -140,10 +146,8 @@ const ResultRegistrationPage = () => {
                   <li className="table__item table__item-user info">
                     <span
                       className="info__text"
-                      onClick={openPopoverPersonalData}
-                      onMouseEnter={openPopoverPersonalData}
-                      onMouseLeave={closePopoverPersonalData}
-                      onKeyPress={openPopoverPersonalData}
+                      onClick={editData()}
+                      onKeyPress={editData()}
                       role="button"
                       tabIndex={0}
                     >

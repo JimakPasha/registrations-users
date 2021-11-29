@@ -37,6 +37,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-underscore-dangle": "off",
+    "no-return-assign": "off",
     "no-unused-vars": "warn",
     "import/prefer-default-export": "off"
   }
