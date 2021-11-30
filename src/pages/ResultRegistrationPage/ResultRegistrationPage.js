@@ -104,7 +104,7 @@ const ResultRegistrationPage = () => {
                       codeword={dataUser.codeword}
                       infoAboutUs={dataUser.infoAboutUs}
                       friendEmail={dataUser.friendEmail}
-                      phoneGirlfriend={dataUser.phoneGirlfriend}
+                      phoneGirlfriend={dataUser.phone}
                       favorite={dataUser.favorite}
                     />
                   )}

@@ -71,7 +71,7 @@ const PersonRegistrationPage = () => {
                 codeword: '',
                 infoAboutUs: '',
                 friendEmail: '',
-                phoneGirlfriend: '',
+                phone: '',
                 favorite: '',
                 id: nanoid(),
               }
@@ -91,7 +91,12 @@ const PersonRegistrationPage = () => {
             <Input name="firstName" type="input" title="Имя:" />
             <Input name="surName" type="input" title="Фамилия:" />
             <Input name="patronymic" type="input" title="Отчество:" />
-            <Input name="date" type="input" title="Дата рождения:" />
+            <Input
+              name="date"
+              type="input"
+              title="Дата рождения:"
+              classModifier="date"
+            />
             <div className="field-box field-box-radio">
               <h5 className="field-box__title">Пол:</h5>
               <div className="field-box__radio">
@@ -109,11 +114,16 @@ const PersonRegistrationPage = () => {
                 />
               </div>
             </div>
-            <Select name="country" title="Страна проживания:" />
+            <Select
+              name="country"
+              title="Страна проживания:"
+              classModifier="country"
+            />
             <Input
               name="address"
               type="input"
               title="Адрес, почтовый индекс:"
+              classModifier="address"
             />
             <Input
               name="motherlastName"
@@ -125,14 +135,35 @@ const PersonRegistrationPage = () => {
               type="input"
               title="Кодовое слово в вашем банке:"
             />
-            <Textarea name="infoAboutUs" title="Как вы узнали о нашем сайте:" />
+            <Textarea
+              name="infoAboutUs"
+              title="Как вы узнали о нашем сайте:"
+              classModifier="info"
+            />
             <Input name="friendEmail" type="input" title="Email друга:" />
             <Input
               name="phoneGirlfriend"
               type="input"
-              title="Номер телефона своей девушки:"
+              title={
+                values.values.sex === 'Мужской'
+                  ? 'Номер телефона своей девушки:'
+                  : 'Номер телефона своего парня:'
+              }
+              classModifier="phone"
             />
-            <Select name="country" title="Любимая футбольная команда:" />
+            <Select
+              name="favorite"
+              title={
+                values.values.sex === 'Мужской'
+                  ? 'Любимая футбольная команда:'
+                  : 'Какую сковороду предпочитаешь:'
+              }
+              classModifier={
+                values.values.sex === 'Мужской'
+                  ? 'favorite-football'
+                  : 'favorite-fryingPan'
+              }
+            />
             <div className="line"> </div>
             <div className="button-box">
               <Button name="Далee" disabled={isSubmitting} />

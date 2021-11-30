@@ -62,7 +62,12 @@ const CardRegistrationPage = () => {
           <Form>
             <Input name="cardNumber" type="input" title="Номер карты:" />
             <Input name="cardValidity" type="input" title="Месяц / год:" />
-            <Input name="cardCvc" type="input" title="CVC2 или CVV2:" />
+            <Input
+              name="cardCvc"
+              type="input"
+              title="CVC2 или CVV2:"
+              classModifier="cvc"
+            />
             <div className="field-box field-box-radio">
               <h5 className="field-box__title">Тип карты:</h5>
               <div className="field-box__radio">
