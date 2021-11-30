@@ -16,7 +16,7 @@ const validationSchema = yup.object({
   firstName: yup.string().required('Заполните это поле'),
   surName: yup.string().required('Заполните это поле'),
   patronymic: yup.string().required('Заполните это поле'),
-  date: yup.string().required('Заполните это поле'),
+  date: yup.date().required('Заполните это поле'),
   address: yup.string().required('Заполните это поле'),
   motherlastName: yup.string().required('Заполните это поле'),
   codeword: yup.string().required('Заполните это поле'),

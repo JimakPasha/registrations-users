@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, useField } from 'formik';
+import InputMask from 'react-input-mask';
 import './Input.scss';
 
 const Input = ({ title, classModifier, ...props }) => {
@@ -31,12 +32,22 @@ const Input = ({ title, classModifier, ...props }) => {
     }
   };
 
-  const defineType = () => {
+  const defineMask = () => {
     if (classModifier === 'date') {
-      return 'date';
+      return '99/99/9999';
     }
-    if (classModifier === 'cvc') {
-      return 'password';
+    if (classModifier === 'phone') {
+      return '+999 99 999-99-99';
+    }
+    return null;
+  };
+
+  const definePlaceholder = () => {
+    if (classModifier === 'date') {
+      return '__/__/____';
+    }
+    if (classModifier === 'phone') {
+      return '+___ __ ___-__-__';
     }
     return null;
   };
@@ -44,16 +55,18 @@ const Input = ({ title, classModifier, ...props }) => {
   return (
     <div className="field-box">
       <h5 className="field-box__title">{title}</h5>
-      <Field
+      <InputMask
         className={
           meta.touched && meta.error
             ? `field-box__input ${classModifier} field-box__field field-box__input-error`
             : `field-box__input ${classModifier} field-box__field`
         }
+        mask={defineMask()}
+        placeholder={definePlaceholder()}
         {...field}
         helpertext={errorText}
         error={!!errorText}
-        type={classModifier && defineType()}
+        type={classModifier === 'cvc' && 'password'}
         maxLength={classModifier === 'cvc' && 3}
       />
       {classModifier && renderDescription()}
