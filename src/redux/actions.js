@@ -3,6 +3,8 @@ import {
   RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
   EDIT,
+  EDIT_CLEAN,
+  EDIT_USER,
 } from './types';
 
 export function registrationsUser(data) {
@@ -30,5 +32,18 @@ export function edit(id) {
   return {
     type: EDIT,
     payload: id,
+  };
+}
+
+export function editClean() {
+  return {
+    type: EDIT_CLEAN,
+  };
+}
+
+export function editUser(data) {
+  return {
+    type: EDIT_USER,
+    payload: data,
   };
 }
