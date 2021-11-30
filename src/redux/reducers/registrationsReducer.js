@@ -3,6 +3,7 @@ import {
   RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
   EDIT,
+  EDIT_CLEAN,
   EDIT_USER,
 } from '../types';
 
@@ -34,11 +35,11 @@ const registrationsReducer = (state = initialState, action) => {
     case EDIT:
       return {
         ...state,
-        ...state.isEdit,
         isEdit: true,
-        ...state.editId,
         editId: action.payload,
       };
+    case EDIT_CLEAN:
+      return { ...state, isEdit: false };
     case EDIT_USER:
       return {
         ...state,

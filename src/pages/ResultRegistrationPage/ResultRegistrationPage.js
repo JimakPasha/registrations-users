@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { edit } from '../../redux/actions';
+import { edit, editClean } from '../../redux/actions';
 import Button from '../../components/Button/Button';
 import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPersonalData';
 import PopoverCard from '../../components/PopoverCard/PopoverCard';
@@ -12,6 +12,10 @@ const ResultRegistrationPage = () => {
   const [popoverCard, setPopoverCard] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(editClean());
+  }, [dispatch]);
 
   const dataUser = useSelector(
     (state) => state.dataRegestration.dataRegestration
