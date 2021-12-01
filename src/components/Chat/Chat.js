@@ -48,12 +48,12 @@ const Chat = () => {
       <ul className="chat__list-messages">
         {messagesHistory.map(({ id, message, operator }) => {
           return operator ? (
-            <div className="chat__list-item-box" key={id}>
+            <li className="chat__list-item-box" key={id}>
               <div className="chat__list-item-avatar">
                 <AvatarOperator />
               </div>
               <li className="chat__list-item admin">{message}</li>
-            </div>
+            </li>
           ) : (
             <li className="chat__list-item user" key={id}>
               {message}

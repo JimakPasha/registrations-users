@@ -103,7 +103,8 @@ a {
     padding-top: 6px;
   }
 
-  &__field {
+  &__field,
+  &__select {
     font-size: 14px;
     padding: 0 8px;
     letter-spacing: 0.7px;
@@ -115,6 +116,69 @@ a {
   &__input {
     width: 410px;
     height: 27px;
+  }
+
+  &__descr {
+    font-size: 10px;
+    color: #a1a1a1;
+    font-style: italic;
+    position: absolute;
+    letter-spacing: 0.7px;
+    white-space: pre-line;
+  }
+
+  &__descr.address {
+    text-decoration: underline;
+    color: #0fc9a8;
+    right: -91px;
+    top: 9px;
+  }
+
+  &__descr.phone-local,
+  &__descr.phone-global {
+    right: -422px;
+    top: 5px;
+  }
+
+  &__descr.info {
+    right: -97px;
+    top: 5px;
+  }
+
+  &__descr.cvc {
+    right: -422px;
+    top: 8px;
+  }
+
+  .date {
+    width: 98px;
+    margin-right: 313px;
+  }
+
+  .phone-local,
+  .phone-global {
+    width: 177px;
+    margin-right: 235px;
+  }
+
+  .cvc {
+    width: 72px;
+    margin-right: 338px;
+  }
+
+  .country {
+    width: 158px;
+    margin-right: 253px;
+    padding: 0 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .favorite-football,
+  .favorite-fryingPan {
+    width: 196px;
+    margin-right: 214px;
+    padding: 0 5px;
+    letter-spacing: 0.2px;
   }
 
   &__radio {

@@ -16,12 +16,21 @@ const validationSchema = yup.object({
   firstName: yup.string().required('Заполните это поле'),
   surName: yup.string().required('Заполните это поле'),
   patronymic: yup.string().required('Заполните это поле'),
-  date: yup.string().required('Заполните это поле'),
+  date: yup
+    .string()
+    .required('Заполните это поле')
+    .min(10, 'Заполните это поле'),
   address: yup.string().required('Заполните это поле'),
   motherlastName: yup.string().required('Заполните это поле'),
   codeword: yup.string().required('Заполните это поле'),
-  friendEmail: yup.string().required('Заполните это поле'),
-  phoneGirlfriend: yup.string().required('Заполните это поле'),
+  friendEmail: yup
+    .string()
+    .required('Заполните это поле')
+    .email('Некорректный email'),
+  phone: yup
+    .string()
+    .required('Заполните это поле')
+    .min(17, 'Заполните это поле'),
 });
 
 const PersonRegistrationPage = () => {
@@ -34,6 +43,18 @@ const PersonRegistrationPage = () => {
   );
   const user = users.find((item) => item.id === editId);
   const newUsers = users.filter((item) => item.id !== user.id);
+
+  const defineClassModifierPhone = (value) => {
+    if (
+      value !== '+' &&
+      value !== '+3' &&
+      value !== '+37' &&
+      value !== '+375'
+    ) {
+      return 'phone-global';
+    }
+    return 'phone-local';
+  };
 
   return (
     <div className="person-reg-page box">
@@ -55,7 +76,7 @@ const PersonRegistrationPage = () => {
                 codeword: user.codeword,
                 infoAboutUs: user.infoAboutUs,
                 friendEmail: user.friendEmail,
-                phoneGirlfriend: user.phoneGirlfriend,
+                phone: user.phone,
                 favorite: user.favorite,
                 id: user.id,
               }
@@ -71,7 +92,7 @@ const PersonRegistrationPage = () => {
                 codeword: '',
                 infoAboutUs: '',
                 friendEmail: '',
-                phoneGirlfriend: '',
+                phone: '',
                 favorite: '',
                 id: nanoid(),
               }
@@ -91,7 +112,12 @@ const PersonRegistrationPage = () => {
             <Input name="firstName" type="input" title="Имя:" />
             <Input name="surName" type="input" title="Фамилия:" />
             <Input name="patronymic" type="input" title="Отчество:" />
-            <Input name="date" type="input" title="Дата рождения:" />
+            <Input
+              name="date"
+              type="input"
+              title="Дата рождения:"
+              classModifier="date"
+            />
             <div className="field-box field-box-radio">
               <h5 className="field-box__title">Пол:</h5>
               <div className="field-box__radio">
@@ -109,11 +135,16 @@ const PersonRegistrationPage = () => {
                 />
               </div>
             </div>
-            <Select name="country" title="Страна проживания:" />
+            <Select
+              name="country"
+              title="Страна проживания:"
+              classModifier="country"
+            />
             <Input
               name="address"
               type="input"
               title="Адрес, почтовый индекс:"
+              classModifier="address"
             />
             <Input
               name="motherlastName"
@@ -125,14 +156,36 @@ const PersonRegistrationPage = () => {
               type="input"
               title="Кодовое слово в вашем банке:"
             />
-            <Textarea name="infoAboutUs" title="Как вы узнали о нашем сайте:" />
+            <Textarea
+              name="infoAboutUs"
+              title="Как вы узнали о нашем сайте:"
+              classModifier="info"
+            />
             <Input name="friendEmail" type="input" title="Email друга:" />
             <Input
-              name="phoneGirlfriend"
+              name="phone"
               type="input"
-              title="Номер телефона своей девушки:"
+              title={
+                values.values.sex === 'Мужской'
+                  ? 'Номер телефона своей девушки:'
+                  : 'Номер телефона своего парня:'
+              }
+              classModifier={defineClassModifierPhone(values.values.phone)}
             />
-            <Select name="country" title="Любимая футбольная команда:" />
+            <Select
+              name="favorite"
+              title={
+                values.values.sex === 'Мужской'
+                  ? 'Любимая футбольная команда:'
+                  : 'Какую сковороду предпочитаешь:'
+              }
+              classModifier={
+                values.values.sex === 'Мужской'
+                  ? 'favorite-football'
+                  : 'favorite-fryingPan'
+              }
+              checkDisable={defineClassModifierPhone(values.values.phone)}
+            />
             <div className="line"> </div>
             <div className="button-box">
               <Button name="Далee" disabled={isSubmitting} />
@@ -145,3 +198,7 @@ const PersonRegistrationPage = () => {
 };
 
 export default PersonRegistrationPage;
+
+const str = '+375 25 99';
+
+console.log(str.split('').slice(1, 4).join(''));
