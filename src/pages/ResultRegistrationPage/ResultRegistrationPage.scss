@@ -9,8 +9,17 @@
     padding-bottom: 20px;
   }
 
-  &__btn.button-box {
-    margin-left: 203px;
+  &__btns {
+    margin-left: 0px;
+    margin-top: 17px;
+
+    .button {
+      margin-left: 21px;
+    }
+
+    .button-back::after {
+      bottom: 0;
+    }
   }
 }
 

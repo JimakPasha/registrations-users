@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registrationsUser, editUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
+import ButtonGoBack from '../../components/ButtonGoBack/ButtonGoBack';
 import Button from '../../components/Button/Button';
 import './CardRegistrationPage.scss';
 
@@ -105,7 +106,8 @@ const CardRegistrationPage = () => {
               </div>
             </div>
             <div className="line"> </div>
-            <div className="button-box">
+            <div className="buttons-box">
+              <ButtonGoBack name="Личные данные" />
               <Button name="Далee" disabled={isSubmitting} />
             </div>
           </Form>

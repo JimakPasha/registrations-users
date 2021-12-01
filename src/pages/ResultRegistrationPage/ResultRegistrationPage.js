@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { edit, editClean } from '../../redux/actions';
 import Button from '../../components/Button/Button';
+import ButtonGoBack from '../../components/ButtonGoBack/ButtonGoBack';
 import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPersonalData';
 import PopoverCard from '../../components/PopoverCard/PopoverCard';
 import './ResultRegistrationPage.scss';
@@ -168,7 +169,10 @@ const ResultRegistrationPage = () => {
         )}
       </div>
       <div className="line"> </div>
-      <div className="button-box result-reg-page__btn">
+      <div className="result-reg-page__btns">
+        {registrationMethod === 'personal' && (
+          <ButtonGoBack name="Данные кредитной карты" />
+        )}
         <Button name="Сохранить" />
       </div>
     </div>
