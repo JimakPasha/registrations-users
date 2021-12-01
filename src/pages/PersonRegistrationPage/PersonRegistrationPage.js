@@ -27,10 +27,7 @@ const validationSchema = yup.object({
     .string()
     .required('Заполните это поле')
     .email('Некорректный email'),
-  phone: yup
-    .string()
-    .required('Заполните это поле')
-    .min(17, 'Заполните это поле'),
+  phone: yup.string().required('Заполните это поле'),
 });
 
 const PersonRegistrationPage = () => {
@@ -45,12 +42,7 @@ const PersonRegistrationPage = () => {
   const newUsers = users.filter((item) => item.id !== user.id);
 
   const defineClassModifierPhone = (value) => {
-    if (
-      value !== '+' &&
-      value !== '+3' &&
-      value !== '+37' &&
-      value !== '+375'
-    ) {
+    if (value.split(' ')[0] === '+375') {
       return 'phone-global';
     }
     return 'phone-local';
@@ -187,9 +179,7 @@ const PersonRegistrationPage = () => {
               checkDisable={defineClassModifierPhone(values.values.phone)}
             />
             <div className="line"> </div>
-            <div className="button-box">
-              <Button name="Далee" disabled={isSubmitting} />
-            </div>
+            <Button name="Далee" disabled={isSubmitting} />
           </Form>
         )}
       </Formik>
@@ -198,7 +188,3 @@ const PersonRegistrationPage = () => {
 };
 
 export default PersonRegistrationPage;
-
-const str = '+375 25 99';
-
-console.log(str.split('').slice(1, 4).join(''));
