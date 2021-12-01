@@ -10,9 +10,18 @@ import Button from '../../components/Button/Button';
 import './CardRegistrationPage.scss';
 
 const validationSchema = yup.object({
-  cardNumber: yup.string().required('Заполните это поле'),
-  cardValidity: yup.string().required('Заполните это поле'),
-  cardCvc: yup.string().required('Заполните это поле'),
+  cardNumber: yup
+    .string()
+    .required('Заполните это поле')
+    .min(19, 'Заполните это поле'),
+  cardValidity: yup
+    .string()
+    .required('Заполните это поле')
+    .min(5, 'Заполните это поле'),
+  cardCvc: yup
+    .string()
+    .required('Заполните это поле')
+    .min(3, 'Заполните это поле'),
   cardType: yup.string().required('Заполните это поле'),
 });
 
@@ -60,8 +69,18 @@ const CardRegistrationPage = () => {
       >
         {(values, errors, isSubmitting) => (
           <Form>
-            <Input name="cardNumber" type="input" title="Номер карты:" />
-            <Input name="cardValidity" type="input" title="Месяц / год:" />
+            <Input
+              name="cardNumber"
+              type="input"
+              title="Номер карты:"
+              classModifier="card"
+            />
+            <Input
+              name="cardValidity"
+              type="input"
+              title="Месяц / год:"
+              classModifier="cardDate"
+            />
             <Input
               name="cardCvc"
               type="input"

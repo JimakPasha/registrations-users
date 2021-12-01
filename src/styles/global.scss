@@ -134,7 +134,8 @@ a {
     top: 9px;
   }
 
-  &__descr.phone {
+  &__descr.phone-local,
+  &__descr.phone-global {
     right: -422px;
     top: 5px;
   }
@@ -154,7 +155,8 @@ a {
     margin-right: 313px;
   }
 
-  .phone {
+  .phone-local,
+  .phone-global {
     width: 177px;
     margin-right: 235px;
   }

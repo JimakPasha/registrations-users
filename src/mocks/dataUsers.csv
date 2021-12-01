@@ -1,4 +1,4 @@
-firstName,surName,patronymic,date,sex,country,address,motherlastName,codeword,infoAboutUs,friendEmail,phoneGirlfriend,favorite,cardNumber,cardValidity,cardCvc,cardType
+firstName,surName,patronymic,date,sex,country,address,motherlastName,codeword,infoAboutUs,friendEmail,phone,favorite,cardNumber,cardValidity,cardCvc,cardType
 Васисуалий,Андреевич,Лоханкин,11/01/1989,Мужской,Беларусь,Гомель,Салтыкова-Щедрина,Банк,Из газеты,dude1982@mail.ru,+375 25 823-45-67,ФК Гомель,9393 9495 9644 5446,20.13,345,Кредитная
 Стив,Стивович,Джобс,11/07/1980,Мужской,Беларусь,Гомель,Салтыкова-Щедрина,Банк,Из газеты,dude1982@mail.ru,+375 25 823-45-67,ФК Гомель,9393 9495 9644 5446,20.13, 345,Дебетовая
 Гарри,Абрамович,Иванов,04/11/1968,Женский,Россия,Магадан,Иванова,Чаки-наки,На заборе было написано,juse12@google.ru,+375 25 823-45-67,ФК Гомель,9393 9495 9644 5446,20.13,345,Кредитная

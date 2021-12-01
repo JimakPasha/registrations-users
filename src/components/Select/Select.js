@@ -3,7 +3,7 @@ import { useField } from 'formik';
 import { country, footballteams, fryingPan } from '../../mocks/options';
 import './Select.scss';
 
-const Select = ({ title, classModifier, ...props }) => {
+const Select = ({ title, classModifier, checkDisable, ...props }) => {
   const [field] = useField(props);
 
   const checkArrList = () => {
@@ -28,7 +28,11 @@ const Select = ({ title, classModifier, ...props }) => {
   return (
     <div className="field-box">
       <h5 className="field-box__title">{title}</h5>
-      <select {...field} className={`field-box__select ${classModifier}`}>
+      <select
+        {...field}
+        className={`field-box__select ${classModifier}`}
+        disabled={checkDisable === 'phone-global'}
+      >
         {checkArrList()}
       </select>
     </div>

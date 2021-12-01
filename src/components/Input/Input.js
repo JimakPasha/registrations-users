@@ -15,10 +15,16 @@ const Input = ({ title, classModifier, ...props }) => {
             Узнать индекс
           </a>
         );
-      case 'phone':
+      case 'phone-local':
         return (
           <span className={`field-box__descr ${classModifier}`}>
             Только Беларусь
+          </span>
+        );
+      case 'phone-global':
+        return (
+          <span className={`field-box__descr ${classModifier}`}>
+            Международный
           </span>
         );
       case 'cvc':
@@ -36,18 +42,34 @@ const Input = ({ title, classModifier, ...props }) => {
     if (classModifier === 'date') {
       return '99/99/9999';
     }
-    if (classModifier === 'phone') {
+    if (classModifier === 'phone-local') {
       return '+999 99 999-99-99';
+    }
+    if (classModifier === 'phone-global') {
+      return '+9 99 999-99-99';
+    }
+    if (classModifier === 'card') {
+      return '9999 9999 9999 9999';
+    }
+    if (classModifier === 'cardDate') {
+      return '99/99';
+    }
+    if (classModifier === 'cvc') {
+      return '999';
     }
     return null;
   };
 
-  const definePlaceholder = () => {
-    if (classModifier === 'date') {
-      return '__/__/____';
-    }
-    if (classModifier === 'phone') {
-      return '+___ __ ___-__-__';
+  const defineMaskChar = () => {
+    if (
+      classModifier === 'date' ||
+      classModifier === 'phone-local' ||
+      classModifier === 'phone-global' ||
+      classModifier === 'card' ||
+      classModifier === 'cardDate' ||
+      classModifier === 'cvc'
+    ) {
+      return '';
     }
     return null;
   };
@@ -62,7 +84,7 @@ const Input = ({ title, classModifier, ...props }) => {
             : `field-box__input ${classModifier} field-box__field`
         }
         mask={defineMask()}
-        placeholder={definePlaceholder()}
+        maskChar={defineMaskChar()}
         {...field}
         helpertext={errorText}
         error={!!errorText}

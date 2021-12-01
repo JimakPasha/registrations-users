@@ -16,12 +16,21 @@ const validationSchema = yup.object({
   firstName: yup.string().required('Заполните это поле'),
   surName: yup.string().required('Заполните это поле'),
   patronymic: yup.string().required('Заполните это поле'),
-  date: yup.date().required('Заполните это поле'),
+  date: yup
+    .string()
+    .required('Заполните это поле')
+    .min(10, 'Заполните это поле'),
   address: yup.string().required('Заполните это поле'),
   motherlastName: yup.string().required('Заполните это поле'),
   codeword: yup.string().required('Заполните это поле'),
-  friendEmail: yup.string().required('Заполните это поле'),
-  phoneGirlfriend: yup.string().required('Заполните это поле'),
+  friendEmail: yup
+    .string()
+    .required('Заполните это поле')
+    .email('Некорректный email'),
+  phone: yup
+    .string()
+    .required('Заполните это поле')
+    .min(17, 'Заполните это поле'),
 });
 
 const PersonRegistrationPage = () => {
@@ -34,6 +43,18 @@ const PersonRegistrationPage = () => {
   );
   const user = users.find((item) => item.id === editId);
   const newUsers = users.filter((item) => item.id !== user.id);
+
+  const defineClassModifierPhone = (value) => {
+    if (
+      value !== '+' &&
+      value !== '+3' &&
+      value !== '+37' &&
+      value !== '+375'
+    ) {
+      return 'phone-global';
+    }
+    return 'phone-local';
+  };
 
   return (
     <div className="person-reg-page box">
@@ -55,7 +76,7 @@ const PersonRegistrationPage = () => {
                 codeword: user.codeword,
                 infoAboutUs: user.infoAboutUs,
                 friendEmail: user.friendEmail,
-                phoneGirlfriend: user.phoneGirlfriend,
+                phone: user.phone,
                 favorite: user.favorite,
                 id: user.id,
               }
@@ -142,14 +163,14 @@ const PersonRegistrationPage = () => {
             />
             <Input name="friendEmail" type="input" title="Email друга:" />
             <Input
-              name="phoneGirlfriend"
+              name="phone"
               type="input"
               title={
                 values.values.sex === 'Мужской'
                   ? 'Номер телефона своей девушки:'
                   : 'Номер телефона своего парня:'
               }
-              classModifier="phone"
+              classModifier={defineClassModifierPhone(values.values.phone)}
             />
             <Select
               name="favorite"
@@ -163,6 +184,7 @@ const PersonRegistrationPage = () => {
                   ? 'favorite-football'
                   : 'favorite-fryingPan'
               }
+              checkDisable={defineClassModifierPhone(values.values.phone)}
             />
             <div className="line"> </div>
             <div className="button-box">
@@ -176,3 +198,7 @@ const PersonRegistrationPage = () => {
 };
 
 export default PersonRegistrationPage;
+
+const str = '+375 25 99';
+
+console.log(str.split('').slice(1, 4).join(''));
