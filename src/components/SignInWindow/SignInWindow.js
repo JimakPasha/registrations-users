@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -29,18 +24,15 @@ const SignInWindow = () => {
   const signInWithEmail = (data) => {
     const { email, password } = data;
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
+      .then(() => {
         dispatch(authentication());
       })
       .catch((error) => {
         setErrorMessage(error.code);
-        console.log(error.code);
       });
   };
 
   const defineError = (errorMessageType) => {
-    console.log(errorMessageType);
     switch (errorMessageType) {
       case 'auth/wrong-password':
         return 'Не верный пароль';

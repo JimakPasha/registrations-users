@@ -30,32 +30,16 @@ const LoginWindow = () => {
   const provider = new GoogleAuthProvider();
 
   const loginWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const { user } = result;
-        dispatch(authentication());
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const { email } = error;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      });
+    signInWithPopup(auth, provider).then(() => {
+      dispatch(authentication());
+    });
   };
 
   const loginWithEmail = (data) => {
     const { email, password } = data;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
-        dispatch(authentication());
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    createUserWithEmailAndPassword(auth, email, password).then(() => {
+      dispatch(authentication());
+    });
   };
 
   return (

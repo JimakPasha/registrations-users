@@ -48,7 +48,7 @@ const StartRegistrationPage = () => {
             }
           }}
         >
-          {(values, errors, isSubmitting) => (
+          {(values) => (
             <Form>
               <div className="start-reg-page__radio-btns">
                 <Radio
