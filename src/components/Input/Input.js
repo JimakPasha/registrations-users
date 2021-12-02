@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, useField } from 'formik';
+import { useField } from 'formik';
 import InputMask from 'react-input-mask';
 import './Input.scss';
 
@@ -74,6 +74,16 @@ const Input = ({ title, classModifier, ...props }) => {
     return null;
   };
 
+  const defineType = () => {
+    if (classModifier === 'cvc') {
+      return 'password';
+    }
+    if (classModifier === 'password') {
+      return 'password';
+    }
+    return null;
+  };
+
   return (
     <div className="field-box">
       <h5 className="field-box__title">{title}</h5>
@@ -88,7 +98,7 @@ const Input = ({ title, classModifier, ...props }) => {
         {...field}
         helpertext={errorText}
         error={!!errorText}
-        type={classModifier === 'cvc' && 'password'}
+        type={defineType()}
         maxLength={classModifier === 'cvc' && 3}
       />
       {classModifier && renderDescription()}

@@ -1,0 +1,30 @@
+.sign-in {
+  width: 600px;
+  text-align: center;
+  padding: 40px;
+  font-family: system-ui;
+  height: 315px;
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  &__form {
+    margin: 20px 0;
+    position: relative;
+  }
+
+  &__error-message {
+    position: absolute;
+    top: 83px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #fc3d11;
+  }
+
+  &__btn {
+    padding: 20px 0;
+  }
+}

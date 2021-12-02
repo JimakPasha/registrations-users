@@ -1,9 +1,23 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { auth } from '../../firebase.config';
+import { logOutUser } from '../../redux/actions';
+import Button from '../Button/Button';
 import './Header.scss';
 
 const Header = () => {
   const location = useLocation();
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    signOut(auth).then(() => {
+      dispatch(logOutUser());
+      history.push('/');
+    });
+  };
 
   const generateActiveClass = () => {
     let className = '';
@@ -18,9 +32,9 @@ const Header = () => {
       <div className="container">
         <div className="header__inner">
           <div className="header__logo">
-            <a className="header__logo-link" href="/">
+            <NavLink className="header__logo-link" exact to="/">
               Городской сайт
-            </a>
+            </NavLink>
           </div>
           <nav className="header__navigation">
             <ul className="header__navigation-list">
@@ -67,6 +81,9 @@ const Header = () => {
               </NavLink>
             </ul>
           </nav>
+          <div className="header__logout-btn">
+            <Button name="выход" onClick={logOut} />
+          </div>
         </div>
       </div>
     </header>
