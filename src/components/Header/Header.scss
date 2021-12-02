@@ -83,4 +83,14 @@
       transform: skewX(-31deg);
     }
   }
+
+  &__logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    .button {
+      font-size: 16px;
+    }
+  }
 }

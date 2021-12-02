@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { collection, addDoc } from 'firebase/firestore/lite';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { db } from '../../firebase.config';
 import { edit, editClean } from '../../redux/actions';
 import Button from '../../components/Button/Button';
 import ButtonGoBack from '../../components/ButtonGoBack/ButtonGoBack';
@@ -49,6 +51,12 @@ const ResultRegistrationPage = () => {
   const editData = (id) => {
     dispatch(edit(id));
     history.push('/registration/personal');
+  };
+
+  const saveData = async () => {
+    await addDoc(collection(db, 'users'), {
+      dataUsersList,
+    });
   };
 
   return (
@@ -173,7 +181,7 @@ const ResultRegistrationPage = () => {
         {registrationMethod === 'personal' && (
           <ButtonGoBack name="Данные кредитной карты" />
         )}
-        <Button name="Сохранить" />
+        <Button name="Сохранить" onClick={saveData} />
       </div>
     </div>
   );

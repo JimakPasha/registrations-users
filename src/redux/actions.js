@@ -1,4 +1,6 @@
 import {
+  AUTHENTICATION,
+  LOGOUT,
   RECEIVE_REGISTRATIONS_USER,
   RECEIVE_REGISTRATIONS_USERS_LIST,
   REGISTRATION_METHOD,
@@ -6,6 +8,18 @@ import {
   EDIT_CLEAN,
   EDIT_USER,
 } from './types';
+
+export function authentication() {
+  return {
+    type: AUTHENTICATION,
+  };
+}
+
+export function logOutUser() {
+  return {
+    type: LOGOUT,
+  };
+}
 
 export function registrationsUser(data) {
   return {

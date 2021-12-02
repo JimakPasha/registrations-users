@@ -1,9 +1,14 @@
 import React from 'react';
 import './Button.scss';
 
-const Button = ({ name, disabled }) => {
+const Button = ({ name, disabled, onClick }) => {
   return (
-    <button className="button" type="submit" disabled={disabled}>
+    <button
+      className="button"
+      type={onClick ? 'button' : 'submit'}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {name}
     </button>
   );
