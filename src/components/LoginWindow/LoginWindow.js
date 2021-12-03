@@ -7,6 +7,7 @@ import {
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import { auth } from '../../firebase.config';
@@ -27,11 +28,13 @@ const validationSchema = yup.object({
 
 const LoginWindow = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const provider = new GoogleAuthProvider();
 
   const loginWithGoogle = () => {
     signInWithPopup(auth, provider).then(() => {
       dispatch(authentication());
+      history.push('/');
     });
   };
 
@@ -39,6 +42,7 @@ const LoginWindow = () => {
     const { email, password } = data;
     createUserWithEmailAndPassword(auth, email, password).then(() => {
       dispatch(authentication());
+      history.push('/');
     });
   };
 

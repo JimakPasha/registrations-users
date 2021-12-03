@@ -1,6 +1,7 @@
 import {
   RECEIVE_REGISTRATIONS_USER,
   RECEIVE_REGISTRATIONS_USERS_LIST,
+  DELETE_USERS_LIST,
   REGISTRATION_METHOD,
   EDIT,
   EDIT_CLEAN,
@@ -29,6 +30,11 @@ const registrationsReducer = (state = initialState, action) => {
           ...state.dataRegestrationUsersList,
           ...action.payload,
         ],
+      };
+    case DELETE_USERS_LIST:
+      return {
+        ...state,
+        dataRegestrationUsersList: [],
       };
     case REGISTRATION_METHOD:
       return { ...state, registrationMethod: action.payload };

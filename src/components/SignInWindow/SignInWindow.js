@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import { auth } from '../../firebase.config';
@@ -20,12 +21,14 @@ const validationSchema = yup.object({
 const SignInWindow = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const signInWithEmail = (data) => {
     const { email, password } = data;
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         dispatch(authentication());
+        history.push('/');
       })
       .catch((error) => {
         setErrorMessage(error.code);

@@ -3,6 +3,7 @@ import {
   LOGOUT,
   RECEIVE_REGISTRATIONS_USER,
   RECEIVE_REGISTRATIONS_USERS_LIST,
+  DELETE_USERS_LIST,
   REGISTRATION_METHOD,
   EDIT,
   EDIT_CLEAN,
@@ -32,6 +33,12 @@ export function registrationsUsersList(data) {
   return {
     type: RECEIVE_REGISTRATIONS_USERS_LIST,
     payload: data,
+  };
+}
+
+export function deleteUsersList() {
+  return {
+    type: DELETE_USERS_LIST,
   };
 }
 
