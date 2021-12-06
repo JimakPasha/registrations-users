@@ -97,9 +97,8 @@ const Input = ({ title, classModifier, ...props }) => {
         maskChar={defineMaskChar()}
         {...field}
         helpertext={errorText}
-        error={!!errorText}
+        error={errorText}
         type={defineType()}
-        maxLength={classModifier === 'cvc' && 3}
       />
       {classModifier && renderDescription()}
       {meta.touched && meta.error && (

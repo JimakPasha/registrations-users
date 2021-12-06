@@ -7,6 +7,7 @@ import {
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import { auth } from '../../firebase.config';
@@ -27,35 +28,22 @@ const validationSchema = yup.object({
 
 const LoginWindow = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const provider = new GoogleAuthProvider();
 
   const loginWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const { user } = result;
-        dispatch(authentication());
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const { email } = error;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      });
+    signInWithPopup(auth, provider).then(() => {
+      dispatch(authentication());
+      history.push('/');
+    });
   };
 
   const loginWithEmail = (data) => {
     const { email, password } = data;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
-        dispatch(authentication());
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    createUserWithEmailAndPassword(auth, email, password).then(() => {
+      dispatch(authentication());
+      history.push('/');
+    });
   };
 
   return (

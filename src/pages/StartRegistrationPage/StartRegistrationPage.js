@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 import {
   checkRegistrationMethod,
   registrationsUsersList,
+  deleteUsersList,
 } from '../../redux/actions';
 import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
@@ -18,6 +19,7 @@ const StartRegistrationPage = () => {
   const history = useHistory();
 
   const upLoad = (e) => {
+    dispatch(deleteUsersList());
     const input = e.target.files[0];
     // eslint-disable-next-line prefer-const
     let readerObj = new FileReader();
@@ -42,13 +44,14 @@ const StartRegistrationPage = () => {
           onSubmit={(data) => {
             dispatch(checkRegistrationMethod(data.registrationMethod));
             if (data.registrationMethod === 'personal') {
+              dispatch(deleteUsersList());
               history.push('/registration/personal');
             } else {
               history.push('/registration/result');
             }
           }}
         >
-          {(values, errors, isSubmitting) => (
+          {(values) => (
             <Form>
               <div className="start-reg-page__radio-btns">
                 <Radio
@@ -89,52 +92,6 @@ const StartRegistrationPage = () => {
             </Form>
           )}
         </Formik>
-        {/* <form className="start-reg-page__form">
-          <label className="start-reg-page__label" htmlFor="registrationPerson">
-            <input
-              className="start-reg-page__input"
-              id="registrationPerson"
-              type="radio"
-              checked={radioInput === 'registrationPerson'}
-              value="registrationPerson"
-              onChange={(e) => {
-                setRadioInput(e.target.value);
-              }}
-            />
-            <span className="start-reg-page__label-name">Персональная</span>
-          </label>
-          <label className="start-reg-page__label" htmlFor="registrationList">
-            <input
-              className="start-reg-page__input"
-              id="registrationList"
-              type="radio"
-              checked={radioInput === 'registrationList'}
-              value="registrationList"
-              onChange={(e) => {
-                setRadioInput(e.target.value);
-              }}
-            />
-            <span className="start-reg-page__label-name">
-              Регистрация пользователей списком
-            </span>
-          </label>
-          <div className="start-reg-page__load-box">
-            <label htmlFor="csv-uploads">
-              Загрузить список
-              <input
-                className="start-reg-page__load-file"
-                name="csv-uploads"
-                id="csv-uploads"
-                type="file"
-                accept=".csv"
-              />
-            </label>
-            <p className="start-reg-page__load-text">People-list.csv</p>
-          </div>
-          <NavLink exact to="/registration/personal">
-            <Button name="Далее" />
-          </NavLink>
-        </form> */}
       </div>
     </div>
   );

@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import { auth } from '../../firebase.config';
@@ -25,22 +21,20 @@ const validationSchema = yup.object({
 const SignInWindow = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const signInWithEmail = (data) => {
-    const { email, password } = data;
+  const signInWithEmail = ({ email, password }) => {
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
+      .then(() => {
         dispatch(authentication());
+        history.push('/');
       })
       .catch((error) => {
         setErrorMessage(error.code);
-        console.log(error.code);
       });
   };
 
   const defineError = (errorMessageType) => {
-    console.log(errorMessageType);
     switch (errorMessageType) {
       case 'auth/wrong-password':
         return 'Не верный пароль';
