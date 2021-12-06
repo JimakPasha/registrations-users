@@ -52,7 +52,7 @@ const Chat = () => {
               <div className="chat__list-item-avatar">
                 <AvatarOperator />
               </div>
-              <li className="chat__list-item admin">{message}</li>
+              <div className="chat__list-item admin">{message}</div>
             </li>
           ) : (
             <li className="chat__list-item user" key={id}>

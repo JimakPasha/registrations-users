@@ -99,7 +99,6 @@ const Input = ({ title, classModifier, ...props }) => {
         helpertext={errorText}
         error={errorText}
         type={defineType()}
-        maxLength={classModifier === 'cvc' ? 3 : Infinity}
       />
       {classModifier && renderDescription()}
       {meta.touched && meta.error && (

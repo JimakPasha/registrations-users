@@ -23,8 +23,7 @@ const SignInWindow = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const signInWithEmail = (data) => {
-    const { email, password } = data;
+  const signInWithEmail = ({ email, password }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         dispatch(authentication());
