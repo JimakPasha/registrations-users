@@ -42,7 +42,7 @@ const PersonRegistrationPage = () => {
   const newUsers = users.filter((item) => item.id !== user.id);
 
   const defineClassModifierPhone = (value) => {
-    if (value.split(' ')[0] === '+375') {
+    if (value.length > 3 && value.replace(/\s+/g, '').substr(0, 4) !== '+375') {
       return 'phone-global';
     }
     return 'phone-local';
