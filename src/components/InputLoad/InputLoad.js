@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, useField } from 'formik';
-import './InputLoad.scss';
 
 const InputLoad = ({ title, type, ...props }) => {
   const [field] = useField(props);

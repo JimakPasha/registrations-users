@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, useField } from 'formik';
-import './Radio.scss';
 
 const Radio = ({ label, title, ...props }) => {
   const [field] = useField(props);

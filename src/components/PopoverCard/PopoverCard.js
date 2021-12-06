@@ -1,5 +1,4 @@
 import React from 'react';
-import './PopoverCard.scss';
 
 const PopoverCard = ({ cardNumber, cardValidity, cardCvc, cardType }) => {
   return (
