@@ -1,5 +1,4 @@
 import React from 'react';
-import './PopoverPersonalData.scss';
 
 const PopoverPersonalData = ({
   address,

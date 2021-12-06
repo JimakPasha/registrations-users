@@ -1,7 +1,6 @@
 import React from 'react';
 import { useField } from 'formik';
 import InputMask from 'react-input-mask';
-import './Input.scss';
 
 const Input = ({ title, classModifier, ...props }) => {
   const [field, meta] = useField(props);
