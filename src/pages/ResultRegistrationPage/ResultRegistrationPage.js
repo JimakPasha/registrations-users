@@ -37,9 +37,7 @@ const ResultRegistrationPage = () => {
   };
 
   const closePopoverPersonalData = () => {
-    setTimeout(() => {
-      setPopoverPersonalData(false);
-    }, 1000);
+    setPopoverPersonalData(false);
   };
 
   const openPopoverCard = () => {

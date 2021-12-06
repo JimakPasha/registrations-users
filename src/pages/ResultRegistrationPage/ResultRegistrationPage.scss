@@ -96,6 +96,17 @@
       border-bottom: 1px dotted #19cbac;
       cursor: pointer;
       transition: all 0.3s;
+      padding-right: 20px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        right: 0px;
+        background-color: #fff;
+        width: 19px;
+        height: 4px;
+      }
 
       &:hover {
         border-color: transparent;
