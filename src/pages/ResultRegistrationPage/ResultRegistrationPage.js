@@ -3,11 +3,12 @@ import { collection, addDoc, getDocs } from 'firebase/firestore/lite';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { db } from '../../firebase.config';
-import { edit, editClean } from '../../redux/actions';
+import { edit, editClean, registrationsUser } from '../../redux/actions';
 import Button from '../../components/Button/Button';
 import ButtonGoBack from '../../components/ButtonGoBack/ButtonGoBack';
 import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPersonalData';
 import PopoverCard from '../../components/PopoverCard/PopoverCard';
+import titleConstant from '../../constants/TitleConstant';
 import './ResultRegistrationPage.scss';
 
 const ResultRegistrationPage = () => {
@@ -68,18 +69,34 @@ const ResultRegistrationPage = () => {
     });
   };
 
+  const sortList = (e) => {
+    const key = titleConstant[e.target.innerHTML];
+    if (key) {
+      const newArr = dataUsersList.sort((a, b) => {
+        return a[key] > b[key] ? 1 : -1;
+      });
+      dispatch(registrationsUser(newArr));
+    }
+  };
+
   return (
     <div className="result-reg-page box">
       <h4 className="result-reg-page__title">Личные данные</h4>
       <div className="result-reg-page__table table">
-        <ul className="table__row">
-          <li className="table__item name">Имя</li>
-          <li className="table__item surName">Фамилия</li>
-          <li className="table__item patronymic">Отчество</li>
-          <li className="table__item date">Дата рождения</li>
-          <li className="table__item sex">Пол</li>
-          <li className="table__item country">Страна</li>
-          <li className="table__item info">
+        <ul
+          className="table__row"
+          onClick={(e) => sortList(e)}
+          role="listbox"
+          tabIndex={0}
+          onKeyPress={(e) => sortList(e)}
+        >
+          <li className="table__item table__item-title name">Имя</li>
+          <li className="table__item table__item-title surName">Фамилия</li>
+          <li className="table__item table__item-title patronymic">Отчество</li>
+          <li className="table__item table__item-title date">Дата рождения</li>
+          <li className="table__item table__item-title sex">Пол</li>
+          <li className="table__item table__item-title country">Страна</li>
+          <li className="table__item table__item-title info">
             {registrationMethod === 'personal' ? 'Доп.инфо' : 'Править'}
           </li>
         </ul>

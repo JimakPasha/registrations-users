@@ -1,30 +1,14 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
-import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import validationSchema from './ValidationSchemaCardRegistration';
 import { registrationsUser, editUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
 import Radio from '../../components/Radio/Radio';
 import ButtonGoBack from '../../components/ButtonGoBack/ButtonGoBack';
 import Button from '../../components/Button/Button';
 import './CardRegistrationPage.scss';
-
-const validationSchema = yup.object({
-  cardNumber: yup
-    .string()
-    .required('Заполните это поле')
-    .min(19, 'Заполните это поле'),
-  cardValidity: yup
-    .string()
-    .required('Заполните это поле')
-    .min(5, 'Заполните это поле'),
-  cardCvc: yup
-    .string()
-    .required('Заполните это поле')
-    .min(3, 'Заполните это поле'),
-  cardType: yup.string().required('Заполните это поле'),
-});
 
 const CardRegistrationPage = () => {
   const dispatch = useDispatch();

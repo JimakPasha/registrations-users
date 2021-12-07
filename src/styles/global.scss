@@ -64,6 +64,22 @@ a {
   background-color: #f1f1f1;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track-piece {
+  width: 15px;
+  border: 3px solid #fff;
+  background-color: #959595;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #959595;
+  border-radius: 15px;
+}
+
 .app {
   height: 100%;
   display: flex;
@@ -113,6 +129,12 @@ a {
     box-shadow: 0px 9px 34px -21px rgba(34, 60, 80, 0.09) inset;
   }
 
+  &__field.cvc {
+    font-size: 33px;
+    letter-spacing: -0.3px;
+    padding: 6px 5px 4px;
+  }
+
   &__input {
     width: 410px;
     height: 27px;
@@ -159,6 +181,18 @@ a {
   .phone-global {
     width: 177px;
     margin-right: 235px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-image: url('../assets/bel-flag.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 
   .cvc {
