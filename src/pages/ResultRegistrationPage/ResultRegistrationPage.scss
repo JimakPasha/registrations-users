@@ -63,6 +63,15 @@
     }
   }
 
+  &__item-title {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #19cbac;
+    }
+  }
+
   .name {
     width: 115px;
   }
@@ -89,6 +98,11 @@
 
   .info {
     width: 133px;
+    cursor: auto;
+
+    &:hover {
+      color: #000;
+    }
 
     &__text {
       position: relative;
