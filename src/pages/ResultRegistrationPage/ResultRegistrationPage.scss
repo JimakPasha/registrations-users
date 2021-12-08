@@ -65,6 +65,10 @@
     }
   }
 
+  &__item-user.info {
+    overflow: unset;
+  }
+
   &__item-title {
     cursor: pointer;
     transition: all 0.3s;

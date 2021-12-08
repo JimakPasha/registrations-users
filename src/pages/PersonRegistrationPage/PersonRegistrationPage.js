@@ -64,7 +64,7 @@ const PersonRegistrationPage = () => {
                 infoAboutUs: '',
                 friendEmail: '',
                 phone: '',
-                favorite: '',
+                favorite: 'ФК Гомель',
                 id: nanoid(),
               }
         }
