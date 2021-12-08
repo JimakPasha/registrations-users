@@ -10,8 +10,10 @@ import RegistrationNavigations from './components/RegistrationNavigations/Regist
 import PersonRegistrationPage from './pages/PersonRegistrationPage/PersonRegistrationPage';
 import CardRegistrationPage from './pages/CardRegistrationPage/CardRegistrationPage';
 import ResultRegistrationPage from './pages/ResultRegistrationPage/ResultRegistrationPage';
+import ButtonChat from './components/ButtonChat/ButtonChat';
 import Chat from './components/Chat/Chat';
 import './styles/global.scss';
+import './styles/media.scss';
 
 const App = () => {
   const authentication = useSelector((state) => state.authentication);
@@ -58,6 +60,7 @@ const App = () => {
                         </Route>
                       </div>
                       <Chat />
+                      <ButtonChat />
                     </div>
                   </>
                 </Switch>

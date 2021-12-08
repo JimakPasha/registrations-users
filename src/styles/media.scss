@@ -1,0 +1,217 @@
+@media (max-width: 1260px) {
+  .chat {
+    display: none;
+  }
+
+  .chat.active {
+    position: absolute;
+    bottom: 180px;
+    right: 0px;
+    height: 550px;
+    display: block;
+  }
+
+  .button-chat {
+    display: block;
+  }
+
+  .footer {
+    &__inner {
+      justify-content: space-between;
+    }
+
+    &__list {
+      margin-right: 0;
+    }
+
+    &__text-c {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .forms-wrap {
+    width: 600px;
+  }
+
+  .person-reg-page {
+    width: 600px;
+    padding: 20px;
+
+    &__wrapper {
+      width: 575px;
+      padding-right: 100px;
+    }
+
+    .field-box {
+      flex-direction: column;
+
+      &__title {
+        padding-bottom: 5px;
+      }
+
+      &__radio {
+        display: flex;
+        margin-left: 27px;
+      }
+
+      &__error-text {
+        top: 7px;
+        right: 120px;
+      }
+    }
+
+    .button {
+      margin-left: 215px;
+    }
+  }
+
+  .button-chat {
+    bottom: 110px;
+  }
+
+  .footer {
+    padding: 15px 0;
+
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 610px) {
+  .authentication-page {
+    padding: 10px 0;
+    position: relative;
+
+    .field-box {
+      &__input {
+        width: 180px;
+      }
+
+      &__title {
+        margin-left: 5px;
+      }
+
+      &__error-text {
+        right: 40px;
+      }
+    }
+  }
+
+  .sign-in,
+  .login {
+    width: 300px;
+    padding: 30px 20px;
+  }
+
+  .sign-in {
+    height: 300px;
+  }
+
+  .login {
+    height: 470px;
+
+    .button {
+      padding: 10px;
+      font-size: 17px;
+    }
+  }
+
+  .start-reg-page {
+    &__box {
+      margin: 20px auto 0;
+      padding: 45px 0px 0px 35px;
+      width: 300px;
+      height: 304px;
+    }
+
+    .button-box {
+      margin-left: 49px;
+    }
+  }
+
+  .forms-wrap {
+    width: 300px;
+    padding: 20px 20px 0;
+
+    &__navigations {
+      margin-bottom: 7px;
+    }
+
+    &__list {
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+
+    &__item {
+      margin-right: 22px;
+    }
+  }
+
+  .person-reg-page {
+    width: 300px;
+
+    &__wrapper {
+      width: 279px;
+      padding-right: 100px;
+    }
+
+    .field-box {
+      margin-bottom: 20px;
+
+      &__input {
+        width: 260px;
+      }
+
+      &__textaria {
+        width: 260px;
+        height: 90px;
+      }
+
+      &__error-text {
+        left: 137px;
+        top: 50px;
+        white-space: nowrap;
+      }
+    }
+
+    .field-box-textaria.field-box {
+      height: 146px;
+    }
+
+    .button {
+      margin-left: 67px;
+    }
+  }
+
+  .button-chat {
+    bottom: 160px;
+  }
+
+  .chat.active {
+    bottom: 235px;
+  }
+
+  .footer {
+    &__list {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+
+    &__item {
+      margin-right: 0;
+    }
+  }
+}

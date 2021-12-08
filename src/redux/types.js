@@ -8,3 +8,5 @@ export const REGISTRATION_METHOD = 'REGISTRATION_METHOD';
 export const EDIT = 'EDIT';
 export const EDIT_CLEAN = 'EDIT_CLEAN';
 export const EDIT_USER = 'EDIT_USER';
+export const CHAT_ON = 'CHAT_ON';
+export const CHAT_OFF = 'CHAT_OFF';

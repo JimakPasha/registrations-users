@@ -51,6 +51,8 @@
     padding-top: 12px;
     font-size: 14px;
     letter-spacing: 0.3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:first-child {
       border-top-left-radius: 0;

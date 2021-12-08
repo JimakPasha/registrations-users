@@ -8,6 +8,8 @@ import {
   EDIT,
   EDIT_CLEAN,
   EDIT_USER,
+  CHAT_ON,
+  CHAT_OFF,
 } from './types';
 
 export function authentication() {
@@ -66,5 +68,17 @@ export function editUser(data) {
   return {
     type: EDIT_USER,
     payload: data,
+  };
+}
+
+export function chatOn() {
+  return {
+    type: CHAT_ON,
+  };
+}
+
+export function chatOff() {
+  return {
+    type: CHAT_OFF,
   };
 }

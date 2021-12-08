@@ -1,8 +1,13 @@
 .person-reg-page {
-  padding: 37px 153px 19px 55px;
+  padding: 37px 0px 19px 55px;
   width: 889px;
-  // height: 300px;
-  // overflow: scroll;
+
+  &__wrapper {
+    overflow: auto;
+    width: 822px;
+    height: 225px;
+    padding-right: 135px;
+  }
 
   &__descr {
     font-size: 11px;
