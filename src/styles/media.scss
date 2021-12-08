@@ -1,0 +1,384 @@
+@media (max-width: 1260px) {
+  .header {
+    &__logo {
+      width: 340px;
+    }
+
+    &__logo-link {
+      font-size: 26px;
+    }
+
+    &__inner {
+      margin-left: 290px;
+    }
+
+    &__navigation-item {
+      font-size: 16px;
+    }
+  }
+
+  .chat {
+    display: none;
+  }
+
+  .chat.active {
+    position: absolute;
+    bottom: 180px;
+    right: 0px;
+    height: 550px;
+    display: block;
+  }
+
+  .button-chat {
+    display: block;
+  }
+
+  .footer {
+    &__inner {
+      justify-content: space-between;
+    }
+
+    &__list {
+      margin-right: 0;
+    }
+
+    &__text-c {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .header {
+    &__logout-btn {
+      right: 100px;
+    }
+
+    &__navigation-list {
+      padding: 20px 10px 60px;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+      top: 82px;
+      right: 0px;
+      width: 200px;
+      transform: translateX(800px);
+      transition: all 0.3s;
+    }
+
+    &__navigation-list.active {
+      transform: translateX(0px);
+    }
+
+    &__navigation-item {
+      padding: 2px 0;
+      margin-top: 30px;
+    }
+
+    &__navigation-item--active {
+      border-top: none;
+      border-bottom: 1px solid #19cbac;
+      color: #19cbac;
+      background-color: transparent;
+
+      &::before,
+      &::after {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .forms-wrap {
+    width: 600px;
+
+    &__list {
+      align-items: flex-end;
+    }
+  }
+
+  .person-reg-page {
+    width: 600px;
+    padding: 20px;
+
+    &__wrapper {
+      width: 575px;
+      padding-right: 100px;
+    }
+
+    .field-box {
+      flex-direction: column;
+
+      &__title {
+        padding-bottom: 5px;
+      }
+
+      &__radio {
+        display: flex;
+        margin-left: 27px;
+      }
+
+      &__error-text {
+        top: 7px;
+        right: 120px;
+      }
+
+      &__descr.cvc {
+        right: 58px;
+        top: 35px;
+      }
+    }
+
+    .button {
+      margin-left: 215px;
+    }
+
+    .buttons-box {
+      margin-left: 45px;
+    }
+  }
+
+  .button-chat {
+    bottom: 110px;
+  }
+
+  .result-reg-page {
+    width: 600px;
+  }
+
+  .result-reg-page {
+    padding-left: 10px;
+  }
+
+  .table {
+    margin-left: 1px;
+
+    &__item {
+      height: 50px;
+      padding: 3px 3px 0;
+    }
+
+    .info {
+      width: 93px;
+    }
+
+    .patronymic,
+    .sex {
+      display: none;
+    }
+  }
+
+  .footer {
+    padding: 15px 0;
+
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 610px) {
+  .header {
+    height: 60px;
+
+    &__logo {
+      width: 180px;
+      font-size: 14px;
+      height: 60px;
+      left: -10px;
+    }
+
+    &__logo-link {
+      font-size: 16px;
+
+      &::after {
+        height: 60px;
+      }
+    }
+
+    &__navigation-list {
+      top: 60px;
+    }
+
+    &__logout-btn {
+      right: 87px;
+      top: 18px;
+
+      .button {
+        padding: 2px 8px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .burger-menu {
+    top: 15px;
+  }
+
+  .authentication-page {
+    padding: 10px 0;
+    position: relative;
+
+    .field-box {
+      &__input {
+        width: 180px;
+      }
+
+      &__title {
+        margin-left: 5px;
+      }
+
+      &__error-text {
+        right: 40px;
+      }
+    }
+  }
+
+  .sign-in,
+  .login {
+    width: 300px;
+    padding: 30px 20px;
+  }
+
+  .sign-in {
+    height: 300px;
+  }
+
+  .login {
+    height: 470px;
+
+    .button {
+      padding: 10px;
+      font-size: 17px;
+    }
+  }
+
+  .start-reg-page {
+    &__box {
+      margin: 20px auto 0;
+      padding: 45px 0px 0px 35px;
+      width: 300px;
+      height: 304px;
+    }
+
+    .button-box {
+      margin-left: 49px;
+    }
+
+    &__load-title {
+      top: 9px;
+      left: -33px;
+    }
+
+    &__load-input {
+      padding-left: 14px;
+    }
+  }
+
+  .forms-wrap {
+    width: 300px;
+    padding: 20px 20px 0;
+
+    &__navigations {
+      margin-bottom: -2px;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__link {
+      font-size: 16px;
+    }
+
+    &__item {
+      margin-right: 22px;
+    }
+  }
+
+  .person-reg-page {
+    width: 300px;
+
+    &__wrapper {
+      width: 279px;
+      padding-right: 100px;
+    }
+
+    .field-box {
+      margin-bottom: 20px;
+
+      &__input {
+        width: 260px;
+      }
+
+      &__textaria {
+        width: 260px;
+        height: 90px;
+      }
+
+      &__error-text {
+        left: 137px;
+        top: 50px;
+        white-space: nowrap;
+      }
+    }
+
+    .field-box-textaria.field-box {
+      height: 146px;
+    }
+
+    .buttons-box {
+      margin-left: -3px;
+    }
+
+    .button {
+      margin-left: 20px;
+    }
+  }
+
+  .button-back {
+    margin-bottom: 20px;
+  }
+
+  .button-chat {
+    bottom: 160px;
+  }
+
+  .chat.active {
+    bottom: 235px;
+  }
+
+  .result-reg-page {
+    width: 300px;
+  }
+
+  .table {
+    &__item-user {
+      font-size: 13px;
+    }
+
+    .date,
+    .country {
+      display: none;
+    }
+  }
+
+  .footer {
+    &__list {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+
+    &__item {
+      margin-right: 0;
+    }
+  }
+}

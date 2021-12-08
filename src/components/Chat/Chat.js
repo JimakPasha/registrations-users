@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
 import messagesOperator from '../../mocks/messagesOperator';
 import AvatarOperator from '../AvatarOperator/AvatarOperator';
 import arrow from '../../assets/right-arrows.png';
 import './Chat.scss';
 
 const Chat = () => {
+  const isOpen = useSelector((state) => state.chatActive);
+
+  const addClassActive = () => {
+    if (isOpen) {
+      return 'active';
+    }
+    return '';
+  };
+
   const [messageUser, setMessageUser] = useState('');
   const [messagesHistory, setMessagesHistory] = useState([]);
+  const ref = useRef();
 
   const randomizerIndex = () => {
     const index = Math.floor(Math.random() * messagesOperator.length);
@@ -39,13 +50,13 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat box">
+    <div className={`chat box ${addClassActive()}`}>
       <div className="chat__operator-conect">
         <AvatarOperator />
         <p className="chat__operator-connect-text">Анна в чате</p>
         <div className="chat__operator-connect-state"> </div>
       </div>
-      <ul className="chat__list-messages">
+      <ul className="chat__list-messages" ref={ref}>
         {messagesHistory.map(({ id, message, operator }) => {
           return operator ? (
             <li className="chat__list-item-box" key={id}>

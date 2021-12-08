@@ -32,9 +32,6 @@ const PersonRegistrationPage = () => {
 
   return (
     <div className="person-reg-page box">
-      <p className="person-reg-page__descr">
-        Все поля формы обязательны для заполнения
-      </p>
       <Formik
         initialValues={
           isEdit
@@ -67,7 +64,7 @@ const PersonRegistrationPage = () => {
                 infoAboutUs: '',
                 friendEmail: '',
                 phone: '',
-                favorite: '',
+                favorite: 'ФК Гомель',
                 id: nanoid(),
               }
         }
@@ -83,83 +80,88 @@ const PersonRegistrationPage = () => {
       >
         {(values, errors, isSubmitting) => (
           <Form>
-            <Input name="firstName" type="input" title="Имя:" />
-            <Input name="surName" type="input" title="Фамилия:" />
-            <Input name="patronymic" type="input" title="Отчество:" />
-            <Input
-              name="date"
-              type="input"
-              title="Дата рождения:"
-              classModifier="date"
-            />
-            <div className="field-box field-box-radio">
-              <h5 className="field-box__title">Пол:</h5>
-              <div className="field-box__radio">
-                <Radio
-                  name="sex"
-                  type="radio"
-                  value="Мужской"
-                  title="Мужской"
-                />
-                <Radio
-                  name="sex"
-                  type="radio"
-                  value="Женский"
-                  title="Женский"
-                />
+            <div className="person-reg-page__wrapper">
+              <p className="person-reg-page__descr">
+                Все поля формы обязательны для заполнения
+              </p>
+              <Input name="firstName" type="input" title="Имя:" />
+              <Input name="surName" type="input" title="Фамилия:" />
+              <Input name="patronymic" type="input" title="Отчество:" />
+              <Input
+                name="date"
+                type="input"
+                title="Дата рождения:"
+                classModifier="date"
+              />
+              <div className="field-box field-box-radio">
+                <h5 className="field-box__title">Пол:</h5>
+                <div className="field-box__radio">
+                  <Radio
+                    name="sex"
+                    type="radio"
+                    value="Мужской"
+                    title="Мужской"
+                  />
+                  <Radio
+                    name="sex"
+                    type="radio"
+                    value="Женский"
+                    title="Женский"
+                  />
+                </div>
               </div>
+              <Select
+                name="country"
+                title="Страна проживания:"
+                classModifier="country"
+              />
+              <Input
+                name="address"
+                type="input"
+                title="Адрес, почтовый индекс:"
+                classModifier="address"
+              />
+              <Input
+                name="motherlastName"
+                type="input"
+                title="Девичья фамилия матери:"
+              />
+              <Input
+                name="codeword"
+                type="input"
+                title="Кодовое слово в вашем банке:"
+              />
+              <Textarea
+                name="infoAboutUs"
+                title="Как вы узнали о нашем сайте:"
+                classModifier="info"
+              />
+              <Input name="friendEmail" type="input" title="Email друга:" />
+              <Input
+                name="phone"
+                type="input"
+                title={
+                  values.values.sex === 'Мужской'
+                    ? 'Номер телефона своей девушки:'
+                    : 'Номер телефона своего парня:'
+                }
+                classModifier={defineClassModifierPhone(values.values.phone)}
+              />
+              <Select
+                name="favorite"
+                title={
+                  values.values.sex === 'Мужской'
+                    ? 'Любимая футбольная команда:'
+                    : 'Какую сковороду предпочитаешь:'
+                }
+                classModifier={
+                  values.values.sex === 'Мужской'
+                    ? 'favorite-football'
+                    : 'favorite-fryingPan'
+                }
+                checkDisable={defineClassModifierPhone(values.values.phone)}
+              />
             </div>
-            <Select
-              name="country"
-              title="Страна проживания:"
-              classModifier="country"
-            />
-            <Input
-              name="address"
-              type="input"
-              title="Адрес, почтовый индекс:"
-              classModifier="address"
-            />
-            <Input
-              name="motherlastName"
-              type="input"
-              title="Девичья фамилия матери:"
-            />
-            <Input
-              name="codeword"
-              type="input"
-              title="Кодовое слово в вашем банке:"
-            />
-            <Textarea
-              name="infoAboutUs"
-              title="Как вы узнали о нашем сайте:"
-              classModifier="info"
-            />
-            <Input name="friendEmail" type="input" title="Email друга:" />
-            <Input
-              name="phone"
-              type="input"
-              title={
-                values.values.sex === 'Мужской'
-                  ? 'Номер телефона своей девушки:'
-                  : 'Номер телефона своего парня:'
-              }
-              classModifier={defineClassModifierPhone(values.values.phone)}
-            />
-            <Select
-              name="favorite"
-              title={
-                values.values.sex === 'Мужской'
-                  ? 'Любимая футбольная команда:'
-                  : 'Какую сковороду предпочитаешь:'
-              }
-              classModifier={
-                values.values.sex === 'Мужской'
-                  ? 'favorite-football'
-                  : 'favorite-fryingPan'
-              }
-              checkDisable={defineClassModifierPhone(values.values.phone)}
-            />
             <div className="line"> </div>
             <Button name="Далee" disabled={isSubmitting} />
           </Form>

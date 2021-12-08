@@ -14,7 +14,7 @@ body,
   box-sizing: inherit;
 }
 
-ul[class],
+ul,
 ol[class] {
   padding: 0;
 }
@@ -64,15 +64,16 @@ a {
   background-color: #f1f1f1;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
 ::-webkit-scrollbar-track-piece {
   width: 15px;
   border: 3px solid #fff;
   background-color: #959595;
   border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 0;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -104,6 +105,7 @@ a {
 
 .wrapper-registrations {
   display: flex;
+  justify-content: center;
 }
 
 .field-box {
