@@ -64,8 +64,8 @@
       top: 82px;
       right: 0px;
       width: 200px;
-      transform: translateX(800px);
-      transition: all 0.3s;
+      transform: translateY(-800px);
+      transition: all 0.5s;
     }
 
     &__navigation-list.active {
