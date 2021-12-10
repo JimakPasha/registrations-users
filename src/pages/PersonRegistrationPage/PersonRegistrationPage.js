@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
@@ -57,14 +57,14 @@ const PersonRegistrationPage = () => {
                 patronymic: '',
                 date: '',
                 sex: 'Мужской',
-                country: 'Беларусь',
+                country: '',
                 address: '',
                 motherlastName: '',
                 codeword: '',
                 infoAboutUs: '',
                 friendEmail: '',
                 phone: '',
-                favorite: 'ФК Гомель',
+                favorite: '',
                 id: nanoid(),
               }
         }
@@ -78,7 +78,7 @@ const PersonRegistrationPage = () => {
           history.push('/registration/card');
         }}
       >
-        {(values, errors, isSubmitting) => (
+        {({ values, errors, isSubmitting, setFieldValue }) => (
           <Form>
             <div className="person-reg-page__wrapper">
               <p className="person-reg-page__descr">
@@ -112,8 +112,10 @@ const PersonRegistrationPage = () => {
               </div>
               <Select
                 name="country"
-                title="Страна проживания:"
+                value={values.country}
+                setFieldValue={setFieldValue}
                 classModifier="country"
+                title="Страна проживания:"
               />
               <Input
                 name="address"
@@ -141,25 +143,27 @@ const PersonRegistrationPage = () => {
                 name="phone"
                 type="input"
                 title={
-                  values.values.sex === 'Мужской'
+                  values.sex === 'Мужской'
                     ? 'Номер телефона своей девушки:'
                     : 'Номер телефона своего парня:'
                 }
-                classModifier={defineClassModifierPhone(values.values.phone)}
+                classModifier={defineClassModifierPhone(values.phone)}
               />
               <Select
                 name="favorite"
-                title={
-                  values.values.sex === 'Мужской'
-                    ? 'Любимая футбольная команда:'
-                    : 'Какую сковороду предпочитаешь:'
-                }
+                value={values.favorite}
+                setFieldValue={setFieldValue}
                 classModifier={
-                  values.values.sex === 'Мужской'
+                  values.sex === 'Мужской'
                     ? 'favorite-football'
                     : 'favorite-fryingPan'
                 }
-                checkDisable={defineClassModifierPhone(values.values.phone)}
+                title={
+                  values.sex === 'Мужской'
+                    ? 'Любимая футбольная команда:'
+                    : 'Какую сковороду предпочитаешь:'
+                }
+                typeTel={values.phone}
               />
             </div>
             <div className="line"> </div>

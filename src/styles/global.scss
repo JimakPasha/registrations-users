@@ -81,6 +81,10 @@ a {
   border-radius: 15px;
 }
 
+::selection {
+  background: rgba(25, 203, 172, 0.3);
+}
+
 .app {
   height: 100%;
   display: flex;

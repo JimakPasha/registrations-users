@@ -173,6 +173,39 @@
     }
   }
 
+  .popover {
+    width: 260px;
+    top: -211px;
+    left: -273px;
+
+    &::before {
+      top: 57%;
+      transform: rotate(180deg);
+      right: -14px;
+      left: auto;
+    }
+  }
+
+  .table .info__text {
+    padding: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .popover--card {
+    width: 170px;
+    top: 29px;
+    left: 20px;
+
+    &::before {
+      top: -7%;
+      left: 45%;
+      transform: rotate(90deg);
+    }
+  }
+
   .footer {
     padding: 15px 0;
 
@@ -366,6 +399,37 @@
 
     .date,
     .country {
+      display: none;
+    }
+  }
+
+  .popover {
+    top: -375px;
+    left: -181px;
+
+    &::before {
+      top: 99%;
+      transform: rotate(270deg);
+      right: 37px;
+    }
+  }
+
+  .popover--card {
+    width: 170px;
+    top: 29px;
+    left: 20px;
+
+    &::before {
+      top: -7%;
+      left: 45%;
+      transform: rotate(90deg);
+    }
+  }
+
+  .table .info__text {
+    padding: 0;
+
+    &::before {
       display: none;
     }
   }
