@@ -3,100 +3,112 @@ import { nanoid } from 'nanoid';
 export const country = [
   {
     id: nanoid(),
-    name: 'Беларусь',
+    nameOption: 'Беларусь',
   },
   {
     id: nanoid(),
-    name: 'Украина',
+    nameOption: 'Украина',
   },
   {
     id: nanoid(),
-    name: 'Казахстан',
+    nameOption: 'Казахстан',
   },
   {
     id: nanoid(),
-    name: 'Литва',
+    nameOption: 'Литва',
   },
   {
     id: nanoid(),
-    name: 'Латвия',
+    nameOption: 'Латвия',
   },
   {
     id: nanoid(),
-    name: 'Эстония',
+    nameOption: 'Эстония',
+  },
+  {
+    id: nanoid(),
+    nameOption: 'Австрия',
+  },
+  {
+    id: nanoid(),
+    nameOption: 'Хорватия',
   },
 ];
 
 export const footballteams = [
   {
     id: nanoid(),
-    name: 'ФК Гомель',
+    nameOption: 'ФК Гомель',
   },
   {
     id: nanoid(),
-    name: 'Манчестер Юнайтед',
+    nameOption: 'Манчестер Юнайтед',
   },
   {
     id: nanoid(),
-    name: 'Барселона',
+    nameOption: 'Барселона',
   },
   {
     id: nanoid(),
-    name: 'ПСЖ',
+    nameOption: 'ПСЖ',
   },
   {
     id: nanoid(),
-    name: 'Ювентус',
+    nameOption: 'Ювентус',
   },
   {
     id: nanoid(),
-    name: 'Бавария',
+    nameOption: 'Бавария',
   },
   {
     id: nanoid(),
-    name: 'Ливерпуль',
+    nameOption: 'Ливерпуль',
   },
   {
     id: nanoid(),
-    name: 'Реал Мадрид',
+    nameOption: 'Реал Мадрид',
   },
   {
     id: nanoid(),
-    name: 'Монако',
+    nameOption: 'Монако',
   },
   {
     id: nanoid(),
-    name: 'Интер',
+    nameOption: 'Интер',
   },
   {
     id: nanoid(),
-    name: 'Боруссия Дортмунд',
+    nameOption: 'Боруссия Дортмунд',
   },
 ];
 
 export const fryingPan = [
   {
     id: nanoid(),
-    name: 'Tefal',
+    nameOption: 'Tefal',
   },
   {
     id: nanoid(),
-    name: 'Rondell',
+    nameOption: 'Rondell',
   },
   {
     id: nanoid(),
-    name: 'Taller',
+    nameOption: 'Taller',
   },
   {
     id: nanoid(),
-    name: 'Biol',
+    nameOption: 'Biol',
   },
   {
     id: nanoid(),
-    name: 'Gipfel',
+    nameOption: 'Gipfel',
   },
   {
     id: nanoid(),
-    name: 'Kukmara',
+    nameOption: 'Kukmara',
+  },
+  {
+    id: nanoid(),
+    nameOption: 'SuperTefall',
   },
 ];
