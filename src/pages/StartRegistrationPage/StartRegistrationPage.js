@@ -15,6 +15,7 @@ import './StartRegistrationPage.scss';
 
 const StartRegistrationPage = () => {
   const [loadFile, setLoadFile] = useState();
+  const [errorEmptyList, setErrorEmptyList] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -44,10 +45,14 @@ const StartRegistrationPage = () => {
           onSubmit={(data) => {
             dispatch(checkRegistrationMethod(data.registrationMethod));
             if (data.registrationMethod === 'personal') {
+              setErrorEmptyList(false);
               dispatch(deleteUsersList());
               history.push('/registration/personal');
-            } else {
+            } else if (data.registrationMethod === 'list' && loadFile) {
+              setErrorEmptyList(false);
               history.push('/registration/result');
+            } else {
+              setErrorEmptyList(true);
             }
           }}
         >
@@ -76,12 +81,19 @@ const StartRegistrationPage = () => {
                     Загрузить список
                   </div>
                   <input
-                    className="start-reg-page__load-input"
+                    className={
+                      errorEmptyList
+                        ? 'start-reg-page__load-input error'
+                        : 'start-reg-page__load-input'
+                    }
                     name="csv-uploads"
                     id="csv-uploads"
                     type="file"
                     accept=".csv"
-                    onChange={(e) => setLoadFile(upLoad(e))}
+                    onChange={(e) => {
+                      setLoadFile(upLoad(e));
+                      setErrorEmptyList(false);
+                    }}
                     value={loadFile}
                   />
                 </label>

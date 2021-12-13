@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
@@ -78,7 +78,7 @@ const PersonRegistrationPage = () => {
           history.push('/registration/card');
         }}
       >
-        {({ values, errors, isSubmitting, setFieldValue }) => (
+        {({ values, isSubmitting, setFieldValue }) => (
           <Form>
             <div className="person-reg-page__wrapper">
               <p className="person-reg-page__descr">

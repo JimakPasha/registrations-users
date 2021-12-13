@@ -31,16 +31,16 @@ const App = () => {
                     <StartPage />
                   </Route>
                   <Route exact path="/1">
-                    1
+                    Страница 1
                   </Route>
                   <Route exact path="/2">
-                    2
+                    Страница 2
                   </Route>
                   <Route exact path="/3">
-                    3
+                    Страница 3
                   </Route>
                   <Route exact path="/5">
-                    5
+                    Страница 5
                   </Route>
                   <Route exact path="/registration">
                     <StartRegistrationPage />

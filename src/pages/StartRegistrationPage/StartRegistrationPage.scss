@@ -98,6 +98,10 @@
     }
   }
 
+  &__load-input.error {
+    color: #ff4d51;
+  }
+
   &__load-text {
     letter-spacing: 0.4px;
   }

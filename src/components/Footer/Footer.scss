@@ -1,4 +1,4 @@
-.footer{
+.footer {
   margin-top: 30px;
   border-top: 1px solid #d2d2d2;
   font-size: 14px;
@@ -18,6 +18,12 @@
     margin-right: 23px;
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  &__item-link {
+    &:hover {
+      text-decoration: underline;
     }
   }
 
