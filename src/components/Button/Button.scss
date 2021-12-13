@@ -15,9 +15,20 @@
   color: #fff;
   font-size: 19px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.3s;
+
+  &:hover {
+    background: #0cc6a7;
+  }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 164, 139, 1) 0%,
+      rgba(3, 172, 146, 1) 35%,
+      rgba(15, 187, 159, 1) 70%,
+      rgba(20, 196, 165, 1) 100%
+    );
   }
 }

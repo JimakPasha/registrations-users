@@ -19,4 +19,12 @@
     height: 1px;
     background-color: #19cbac;
   }
+
+  &:hover {
+    color: #ff4d51;
+  }
+
+  &:hover.button-back::after {
+    background-color: #ff4d51;
+  }
 }

@@ -49,11 +49,16 @@
     display: flex;
   }
 
+  &__navigation-link {
+    &:hover {
+      color: #19cbac;
+    }
+  }
+
   &__navigation-item {
     font-size: 19px;
     padding: 5px 19px;
     letter-spacing: -0.1px;
-    transition: all 0.3s;
   }
 
   &__navigation-item--active {
@@ -81,6 +86,10 @@
       width: 20px;
       height: 33px;
       transform: skewX(-31deg);
+    }
+
+    &:hover {
+      color: #fff;
     }
   }
 

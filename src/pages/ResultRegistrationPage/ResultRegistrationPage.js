@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore/lite';
+import { collection, addDoc, getDocs } from 'firebase/firestore/lite';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { db } from '../../firebase.config';
@@ -59,14 +59,14 @@ const ResultRegistrationPage = () => {
       dataUsersList,
       dataUser,
     });
-    // const querySnapshot = await getDocs(collection(db, 'users'));
-    // querySnapshot.forEach((doc) => {
-    //   // const arr = doc.data();
-    //   // // const newUsers = arr.dataUsersList;
-    //   // // const newUser = arr.dataUser;
-    //   // // // console.log(newUsers);
-    //   // // // console.log(newUser);
-    // });
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    querySnapshot.forEach((doc) => {
+      const arr = doc.data();
+      const newUsers = arr.dataUsersList;
+      const newUser = arr.dataUser;
+      console.log(newUsers);
+      console.log(newUser);
+    });
   };
 
   const sortList = (e) => {
