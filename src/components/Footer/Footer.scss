@@ -1,0 +1,39 @@
+.footer {
+  margin-top: 30px;
+  border-top: 1px solid #d2d2d2;
+  font-size: 14px;
+  padding: 30px 0;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__list {
+    display: flex;
+    letter-spacing: 0.43px;
+    margin-right: 408px;
+  }
+
+  &__item {
+    margin-right: 23px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__item-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__text-c {
+    margin-left: 4px;
+    margin-right: 48px;
+    letter-spacing: 0.2px;
+  }
+
+  &__text-create {
+    letter-spacing: 0.25px;
+  }
+}

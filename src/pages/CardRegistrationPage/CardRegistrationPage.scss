@@ -1,0 +1,25 @@
+.person-reg-page {
+  padding: 37px 153px 19px 55px;
+  width: 889px;
+
+  &__descr {
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    margin-bottom: 27px;
+  }
+}
+
+.buttons-box {
+  display: flex;
+  margin-top: 17px;
+  margin-left: 132px;
+
+  .button {
+    margin-left: 24px;
+  }
+}
+
+.cvc {
+  width: 72px;
+  margin-right: 338px;
+}

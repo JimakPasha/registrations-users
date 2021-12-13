@@ -1,0 +1,107 @@
+.form-input-select {
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  width: 200px;
+  height: 27px;
+}
+
+.selected-value {
+  height: 27px;
+  border: 2px solid #d3d3d3;
+  border-radius: 3px;
+  box-shadow: 0px 9px 34px -21px rgb(34 60 80 / 9%) inset;
+}
+
+.form-input-select .arrow {
+  border-color: #000 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: ' ';
+  display: block;
+  height: 0;
+  margin-top: 0.3rem;
+  position: absolute;
+  right: 8px;
+  top: 5px;
+  width: 0;
+}
+
+.arrow-wrapper {
+  top: 0;
+  left: -13px;
+  width: 15%;
+  height: 27px;
+  position: absolute;
+  background-color: rgba(211, 211, 211, 0.527);
+  border: 2px solid #ccc;
+  z-index: 999;
+}
+
+.form-input-select .arrow.open {
+  border-color: transparent transparent #000;
+  border-width: 0 5px 5px;
+}
+
+.form-input-select .selected-value {
+  line-height: 1.5;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+  transition: all 200ms ease;
+  width: 100%;
+  margin-left: -211px;
+
+  &:disabled {
+    background: rgba(211, 211, 211, 0.849);
+    pointer-events: none;
+  }
+}
+
+.form-input-select .options {
+  display: none;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 6%);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  left: -211px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.form-input-select .options.open {
+  display: block;
+}
+
+.form-input-select .option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 5px 10px;
+}
+
+.form-input-select .option.selected,
+.form-input-select .option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.options.open {
+  transform: translateY(-112%);
+}
+
+.field-box {
+  &__select {
+    height: 27px;
+  }
+}

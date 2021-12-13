@@ -1,0 +1,113 @@
+.start-reg-page {
+  &__box {
+    position: relative;
+    margin: 70px auto 0;
+    padding: 65px 0px 0px 60px;
+    width: 420px;
+    height: 334px;
+
+    .button {
+      position: absolute;
+    }
+  }
+
+  &__title {
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  &__radio-btns {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 17px;
+    row-gap: 17px;
+    margin-left: 45px;
+    letter-spacing: 0.7px;
+  }
+
+  &__form {
+    margin-left: 20px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+  }
+
+  &__label {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    cursor: pointer;
+  }
+
+  &__load-box {
+    margin-bottom: 40px;
+    display: flex;
+  }
+
+  &__load-label {
+    cursor: pointer;
+    position: relative;
+    margin-left: 14px;
+  }
+
+  &__load-title {
+    color: #19cbac;
+    font-size: 14px;
+    position: absolute;
+    padding: 10px 14px 10px 20px;
+    top: -9px;
+    left: 10px;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    background-color: #fff;
+
+    &::before {
+      position: absolute;
+      content: '';
+      bottom: 7px;
+      left: 19px;
+      width: 122px;
+      border-bottom: 1px dotted #19cbac;
+      background-color: #19cbac;
+    }
+  }
+
+  &__load-input {
+    padding-left: 43px;
+    transition: all 0.3s;
+    font-size: 14px;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      width: 1px;
+      height: 12px;
+      position: absolute;
+      bottom: 2px;
+      right: 149px;
+      background-color: #d5d5d5;
+      font-size: 15px;
+      z-index: 10;
+    }
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
+  &__load-input.error {
+    color: #ff4d51;
+  }
+
+  &__load-text {
+    letter-spacing: 0.4px;
+  }
+
+  .button-box {
+    margin-top: 38px;
+    margin-left: 12px;
+  }
+}

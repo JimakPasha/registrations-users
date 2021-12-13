@@ -1,0 +1,22 @@
+.person-reg-page {
+  padding: 37px 0px 19px 55px;
+  width: 889px;
+
+  &__wrapper {
+    overflow: auto;
+    width: 822px;
+    height: 225px;
+    padding-right: 135px;
+  }
+
+  &__descr {
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    margin-bottom: 27px;
+  }
+
+  .button {
+    margin-left: 271px;
+    margin-top: 17px;
+  }
+}
