@@ -27,11 +27,14 @@ const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  entry: './index.js',
+  entry: './index.tsx',
   output: {
     filename: filename('js'),
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
   },
   optimization: optimization(),
   devServer: {
@@ -48,6 +51,20 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+        },
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
         },
       },
       {
@@ -98,7 +115,7 @@ module.exports = {
       filename: filename('css'),
     }),
     new ESLintPlugin({
-      extensions: ['js'],
+      extensions: ['js', 'ts', 'tsx'],
     }),
   ],
 };
