@@ -1,6 +1,16 @@
 import React from 'react';
 
-const PopoverPersonalData = ({
+interface Props {
+  address: string;
+  motherlastName: string;
+  codeword: string;
+  infoAboutUs: string;
+  friendEmail: string;
+  phoneGirlfriend: string;
+  favorite: string;
+}
+
+const PopoverPersonalData: React.FC<Props> = ({
   address,
   motherlastName,
   codeword,
@@ -8,7 +18,7 @@ const PopoverPersonalData = ({
   friendEmail,
   phoneGirlfriend,
   favorite,
-}) => {
+}: Props) => {
   return (
     <div className="popover">
       <ul className="popover__list">

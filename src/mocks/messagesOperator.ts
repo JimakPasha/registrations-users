@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
+import { IMessagesOperator } from '../models/IMessagesOperator';
 
-const messagesOperator = [
+const messagesOperator: IMessagesOperator[] = [
   {
     id: nanoid(),
     message:

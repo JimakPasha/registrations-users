@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
+import { ISelectType } from '../models/ ISelectType';
 
-export const country = [
+export const country: ISelectType[] = [
   {
     id: nanoid(),
     nameOption: 'Беларусь',
@@ -35,7 +36,7 @@ export const country = [
   },
 ];
 
-export const footballteams = [
+export const footballteams: ISelectType[] = [
   {
     id: nanoid(),
     nameOption: 'ФК Гомель',
@@ -82,7 +83,7 @@ export const footballteams = [
   },
 ];
 
-export const fryingPan = [
+export const fryingPan: ISelectType[] = [
   {
     id: nanoid(),
     nameOption: 'Tefal',

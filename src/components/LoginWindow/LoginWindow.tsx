@@ -13,6 +13,7 @@ import Button from '../Button/Button';
 import { auth } from '../../firebase.config';
 import { authentication } from '../../redux/actions';
 import './LoginWindow.scss';
+import { ILoginSignIn } from '../../models/ILoginSignIn';
 
 const validationSchema = yup.object({
   email: yup
@@ -26,19 +27,19 @@ const validationSchema = yup.object({
     .max(28, 'Минимум 28 символов'),
 });
 
-const LoginWindow = () => {
+const LoginWindow: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const provider = new GoogleAuthProvider();
 
-  const loginWithGoogle = () => {
+  const loginWithGoogle = (): void => {
     signInWithPopup(auth, provider).then(() => {
       dispatch(authentication());
       history.push('/');
     });
   };
 
-  const loginWithEmail = (data) => {
+  const loginWithEmail = (data: ILoginSignIn): void => {
     const { email, password } = data;
     createUserWithEmailAndPassword(auth, email, password).then(() => {
       dispatch(authentication());

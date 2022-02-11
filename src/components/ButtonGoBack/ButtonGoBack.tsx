@@ -2,7 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './ButtonGoBack.scss';
 
-const ButtonGoBack = ({ name }) => {
+interface Props {
+  name: string;
+}
+
+const ButtonGoBack: React.FC<Props> = ({ name }: Props) => {
   const history = useHistory();
 
   return (

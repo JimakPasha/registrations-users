@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './RegistrationNavigations.scss';
 
-const RegistrationNavigations = () => {
+const RegistrationNavigations: React.FC = () => {
   return (
     <div className="registration-nav">
       <div className="forms-wrap box">

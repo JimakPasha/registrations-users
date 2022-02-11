@@ -1,7 +1,12 @@
 import React from 'react';
 import './ButtonBurgerMenu.scss';
 
-const ButtonBurgerMenu = ({ clickMenu, openMenu }) => {
+interface Props {
+  clickMenu: () => void;
+  openMenu: boolean;
+}
+
+const ButtonBurgerMenu: React.FC<Props> = ({ clickMenu, openMenu }: Props) => {
   return (
     <button
       className={openMenu ? 'burger-menu' : 'burger-menu close'}

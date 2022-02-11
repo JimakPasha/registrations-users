@@ -1,6 +1,18 @@
 import React from 'react';
 
-const PopoverCard = ({ cardNumber, cardValidity, cardCvc, cardType }) => {
+interface Props {
+  cardNumber: string;
+  cardValidity: string;
+  cardCvc: string;
+  cardType: string;
+}
+
+const PopoverCard: React.FC<Props> = ({
+  cardNumber,
+  cardValidity,
+  cardCvc,
+  cardType,
+}: Props) => {
   return (
     <div className="popover popover--card">
       <ul className="popover__list">

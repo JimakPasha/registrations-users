@@ -5,8 +5,9 @@ import messagesOperator from '../../mocks/messagesOperator';
 import AvatarOperator from '../AvatarOperator/AvatarOperator';
 import arrow from '../../assets/right-arrows.png';
 import './Chat.scss';
+import { IMessagesOperator } from '../../models/IMessagesOperator';
 
-const Chat = () => {
+const Chat: React.FC = () => {
   const isOpen = useSelector((state) => state.chatActive);
 
   const addClassActive = () => {
@@ -16,8 +17,8 @@ const Chat = () => {
     return '';
   };
 
-  const [messageUser, setMessageUser] = useState('');
-  const [messagesHistory, setMessagesHistory] = useState([]);
+  const [messageUser, setMessageUser] = useState<string>('');
+  const [messagesHistory, setMessagesHistory] = useState<IMessagesOperator[]>([]);
   const ref = useRef();
 
   const randomizerIndex = () => {
@@ -32,7 +33,7 @@ const Chat = () => {
     setMessagesHistory((prev) => [...prev, messagesOperator[0]]);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (messageUser) {
       setMessagesHistory((prev) => [

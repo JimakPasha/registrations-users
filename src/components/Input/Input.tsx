@@ -6,7 +6,12 @@ import descriptionInputConstant from '../../constants/DescriptionInputConstant';
 import maskCharInputConstant from '../../constants/MaskCharInputConstant';
 import typeInputConstant from '../../constants/TypeInputConstant';
 
-const Input = ({ title, classModifier, ...props }) => {
+interface Props {
+  title: string;
+  classModifier?: string;
+}
+
+const Input: React.FC<Props> = ({ title, classModifier, ...props }: Props) => {
   const [field, meta] = useField(props);
   const errorText = meta.error && meta.touched ? meta.error : '';
 

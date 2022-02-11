@@ -15,7 +15,7 @@ import Chat from './components/Chat/Chat';
 import './styles/global.scss';
 import './styles/media.scss';
 
-const App = (): JSX.Element => {
+const App: React.FC = () => {
   const authentication = useSelector((state) => state.authentication);
 
   return (

@@ -4,7 +4,7 @@ import { chatOn, chatOff } from '../../redux/actions';
 import AvatarOperator from '../AvatarOperator/AvatarOperator';
 import './ButtonChat.scss';
 
-const ButtonChat = () => {
+const ButtonChat: React.FC = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.chatActive);
 

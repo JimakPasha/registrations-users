@@ -8,8 +8,8 @@ import ButtonBurgerMenu from '../ButtonBurgerMenu/ButtonBurgerMenu';
 import Button from '../Button/Button';
 import './Header.scss';
 
-const Header = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+const Header: React.FC = () => {
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const clickMenu = () => {
     setOpenMenu((prev) => !prev);

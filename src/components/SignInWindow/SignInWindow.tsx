@@ -8,6 +8,7 @@ import Button from '../Button/Button';
 import { auth } from '../../firebase.config';
 import { authentication } from '../../redux/actions';
 import './SignInWindow.scss';
+import { ILoginSignIn } from '../../models/ILoginSignIn';
 
 const validationSchema = yup.object({
   email: yup
@@ -17,11 +18,13 @@ const validationSchema = yup.object({
   password: yup.string().required('Заполните это поле'),
 });
 
-const SignInWindow = () => {
-  const [errorMessage, setErrorMessage] = useState('');
+const SignInWindow: React.FC = () => {
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const dispatch = useDispatch();
 
-  const signInWithEmail = ({ email, password }) => {
+  const initialValuesForm: ILoginSignIn = { email: '', password: '' };
+
+  const signInWithEmail = ({ email, password }: ILoginSignIn): void => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         dispatch(authentication());
@@ -31,7 +34,7 @@ const SignInWindow = () => {
       });
   };
 
-  const defineError = (errorMessageType) => {
+  const defineError = (errorMessageType: string): string => {
     switch (errorMessageType) {
       case 'auth/wrong-password':
         return 'Не верный пароль';
@@ -47,9 +50,9 @@ const SignInWindow = () => {
       <h3 className="sign-in__title">Войдите, чтобы получить доступ к сайту</h3>
       <div className="sign-in__form">
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={initialValuesForm}
           validationSchema={validationSchema}
-          onSubmit={(data) => {
+          onSubmit={(data: ILoginSignIn) => {
             signInWithEmail(data);
           }}
         >

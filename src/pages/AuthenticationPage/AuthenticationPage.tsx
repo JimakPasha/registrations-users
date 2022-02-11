@@ -7,7 +7,7 @@ import SignInWindow from '../../components/SignInWindow/SignInWindow';
 import LoginWindow from '../../components/LoginWindow/LoginWindow';
 import './AuthenticationPage.scss';
 
-const AuthenticationPage = () => {
+const AuthenticationPage: React.FC = () => {
   const dispatch = useDispatch();
 
   onAuthStateChanged(auth, (user) => {
