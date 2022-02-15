@@ -11,9 +11,10 @@ import PopoverCard from '../../components/PopoverCard/PopoverCard';
 import titleConstant from '../../constants/TitleConstant';
 import './ResultRegistrationPage.scss';
 
-const ResultRegistrationPage = () => {
-  const [popoverPersonalData, setPopoverPersonalData] = useState(false);
-  const [popoverCard, setPopoverCard] = useState(false);
+const ResultRegistrationPage: React.FC = () => {
+  const [popoverPersonalData, setPopoverPersonalData] =
+    useState<boolean>(false);
+  const [popoverCard, setPopoverCard] = useState<boolean>(false);
   const history = useHistory();
   const dispatch = useDispatch();
 

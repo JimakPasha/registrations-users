@@ -1,8 +1,13 @@
 import React from 'react';
 import { useField } from 'formik';
 import './Textarea.scss';
+import { Iinput } from '../../models/Iinput';
 
-const Textarea = ({ title, classModifier, ...props }) => {
+const Textarea: React.FC<Iinput> = ({
+  title,
+  classModifier,
+  ...props
+}: Iinput) => {
   const [field] = useField(props);
   return (
     <div className="field-box field-box-textaria">

@@ -12,7 +12,7 @@ import Select from '../../components/Select/Select';
 import Button from '../../components/Button/Button';
 import './PersonRegistrationPage.scss';
 
-const PersonRegistrationPage = () => {
+const PersonRegistrationPage: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isEdit = useSelector((state) => state.dataRegestration.isEdit);
@@ -23,7 +23,7 @@ const PersonRegistrationPage = () => {
   const user = users.find((item) => item.id === editId);
   const newUsers = users.filter((item) => item.id !== user.id);
 
-  const defineClassModifierPhone = (value) => {
+  const defineClassModifierPhone = (value: string): string => {
     if (value.length > 3 && value.replace(/\s+/g, '').substr(0, 4) !== '+375') {
       return 'phone-global';
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './StartPage.scss';
 
-const StartPage = () => {
+const StartPage: React.FC = () => {
   return (
     <div className="start-page">
       Это стартовая страница сайта. На 4 пункте находится регистрация

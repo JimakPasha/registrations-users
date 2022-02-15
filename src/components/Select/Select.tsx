@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import { useField } from 'formik';
+import { FieldHookConfig, useField } from 'formik';
 import { country, footballteams, fryingPan } from '../../mocks/options';
 import './Select.scss';
+import { ISelectType } from '../../models/ ISelectType';
 
-export default function Select({
+interface Props {
+  name: string;
+  value: string;
+  setFieldValue: any;
+  classModifier: string;
+  title: string;
+  typeTel?: string;
+}
+
+const Select: React.FC<Props> = ({
   setFieldValue,
   name,
   classModifier,
   title,
   typeTel,
   ...props
-}) {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
-  const [typeSelect, setTypeSelect] = useState(false);
+}: Props) => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [value, setValue] = useState<string>('');
+  const [typeSelect, setTypeSelect] = useState<boolean | null>(false);
   const [field] = useField(props);
 
   const changeValue = async () => {
     await setFieldValue(name, value);
   };
 
-  const checkedTelType = (typeTelValue) => {
+  const checkedTelType = (typeTelValue: boolean): boolean | null => {
     if (typeTelValue) {
       return typeTelValue.split(' ')[0] !== '+375';
     }
@@ -32,12 +42,12 @@ export default function Select({
   }, [value]);
 
   useEffect(() => {
-    if (name === 'favorite') {
-      setTypeSelect(checkedTelType(typeTel));
+    if (name === 'favorite' && typeTel) {
+      setTypeSelect(checkedTelType(!typeTel));
     }
   }, [typeTel]);
 
-  const checkArrList = () => {
+  const checkArrList = (): ISelectType[] | null => {
     switch (classModifier) {
       case 'country':
         return country;
@@ -64,7 +74,7 @@ export default function Select({
           <input
             autoComplete="off"
             {...field}
-            disabled={typeSelect}
+            disabled={!typeSelect}
             {...props}
             className="selected-value"
             type="text"
@@ -117,4 +127,6 @@ export default function Select({
       </div>
     </div>
   );
-}
+};
+
+export default Select;

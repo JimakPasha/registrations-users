@@ -34,7 +34,7 @@
   "rules": {
     "linebreak-style": ["error", "unix"],
     "indent": ["off"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-indent": [0, "tab"],
     "prettier/prettier": ["warn", {"endOfLine": "auto"}],

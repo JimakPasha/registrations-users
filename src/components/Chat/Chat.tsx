@@ -18,8 +18,10 @@ const Chat: React.FC = () => {
   };
 
   const [messageUser, setMessageUser] = useState<string>('');
-  const [messagesHistory, setMessagesHistory] = useState<IMessagesOperator[]>([]);
-  const ref = useRef();
+  const [messagesHistory, setMessagesHistory] = useState<IMessagesOperator[]>(
+    []
+  );
+  const ref = useRef<HTMLUListElement | null>(null);
 
   const randomizerIndex = () => {
     const index = Math.floor(Math.random() * messagesOperator.length);

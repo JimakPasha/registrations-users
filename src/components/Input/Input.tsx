@@ -5,13 +5,13 @@ import masksInputConstant from '../../constants/MasksInputConstant';
 import descriptionInputConstant from '../../constants/DescriptionInputConstant';
 import maskCharInputConstant from '../../constants/MaskCharInputConstant';
 import typeInputConstant from '../../constants/TypeInputConstant';
+import { Iinput } from '../../models/Iinput';
 
-interface Props {
-  title: string;
-  classModifier?: string;
-}
-
-const Input: React.FC<Props> = ({ title, classModifier, ...props }: Props) => {
+const Input: React.FC<Iinput> = ({
+  title,
+  classModifier,
+  ...props
+}: Iinput) => {
   const [field, meta] = useField(props);
   const errorText = meta.error && meta.touched ? meta.error : '';
 

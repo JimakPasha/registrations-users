@@ -13,13 +13,13 @@ import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
 import './StartRegistrationPage.scss';
 
-const StartRegistrationPage = () => {
+const StartRegistrationPage: React.FC = () => {
   const [loadFile, setLoadFile] = useState();
-  const [errorEmptyList, setErrorEmptyList] = useState(false);
+  const [errorEmptyList, setErrorEmptyList] = useState<boolean>(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const upLoad = (e) => {
+  const upLoad = (e: React.FormEvent<HTMLInputElement>) => {
     dispatch(deleteUsersList());
     const input = e.target.files[0];
     // eslint-disable-next-line prefer-const
@@ -90,7 +90,7 @@ const StartRegistrationPage = () => {
                     id="csv-uploads"
                     type="file"
                     accept=".csv"
-                    onChange={(e) => {
+                    onChange={(e: React.FormEvent<HTMLInputElement>) => {
                       setLoadFile(upLoad(e));
                       setErrorEmptyList(false);
                     }}

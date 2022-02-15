@@ -1,10 +1,16 @@
 import * as yup from 'yup';
 
-const dateValidate = (value) => {
+const dateValidate = (
+  value: string
+):
+  | boolean
+  | yup.ValidationError
+  | Promise<boolean | yup.ValidationError>
+  | null => {
   if (value) {
     const arr = value.split('/');
     if (
-      arr[0] < 13 &&
+      arr[0].length < 13 &&
       arr[1] > String(new Date().getFullYear() - 1).substr(-2, 2)
     ) {
       return true;

@@ -10,7 +10,7 @@ import ButtonGoBack from '../../components/ButtonGoBack/ButtonGoBack';
 import Button from '../../components/Button/Button';
 import './CardRegistrationPage.scss';
 
-const CardRegistrationPage = () => {
+const CardRegistrationPage: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const isEdit = useSelector((state) => state.dataRegestration.isEdit);
@@ -52,7 +52,7 @@ const CardRegistrationPage = () => {
           history.push('/registration/result');
         }}
       >
-        {(values, errors, isSubmitting) => (
+        {(isSubmitting) => (
           <Form>
             <Input
               name="cardNumber"
@@ -92,7 +92,7 @@ const CardRegistrationPage = () => {
             <div className="line"> </div>
             <div className="buttons-box">
               <ButtonGoBack name="Личные данные" />
-              <Button name="Далee" disabled={isSubmitting} />
+              <Button name="Далee" disabled={!isSubmitting} />
             </div>
           </Form>
         )}
