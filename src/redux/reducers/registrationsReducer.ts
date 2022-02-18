@@ -1,14 +1,10 @@
 import {
-  RECEIVE_REGISTRATIONS_USER,
-  RECEIVE_REGISTRATIONS_USERS_LIST,
-  DELETE_USERS_LIST,
-  REGISTRATION_METHOD,
-  EDIT,
-  EDIT_CLEAN,
-  EDIT_USER,
-} from '../types';
+  RegistrationsActionTypes,
+  RegistrationsAction,
+} from '../../models/IRegistrationsAction';
+import { IregistrationsReducer } from '../../models/IregistrationsReducer';
 
-const initialState = {
+const initialState: IregistrationsReducer = {
   registrationMethod: '',
   dataRegestration: {},
   dataRegestrationUsersList: [],
@@ -16,14 +12,17 @@ const initialState = {
   editId: '',
 };
 
-const registrationsReducer = (state = initialState, action) => {
+const registrationsReducer = (
+  action: RegistrationsAction,
+  state = initialState
+): IregistrationsReducer => {
   switch (action.type) {
-    case RECEIVE_REGISTRATIONS_USER:
+    case RegistrationsActionTypes.RECEIVE_REGISTRATIONS_USER:
       return {
         ...state,
         dataRegestration: { ...state.dataRegestration, ...action.payload },
       };
-    case RECEIVE_REGISTRATIONS_USERS_LIST:
+    case RegistrationsActionTypes.RECEIVE_REGISTRATIONS_USERS_LIST:
       return {
         ...state,
         dataRegestrationUsersList: [
@@ -31,22 +30,22 @@ const registrationsReducer = (state = initialState, action) => {
           ...action.payload,
         ],
       };
-    case DELETE_USERS_LIST:
+    case RegistrationsActionTypes.DELETE_USERS_LIST:
       return {
         ...state,
         dataRegestrationUsersList: [],
       };
-    case REGISTRATION_METHOD:
+    case RegistrationsActionTypes.REGISTRATION_METHOD:
       return { ...state, registrationMethod: action.payload };
-    case EDIT:
+    case RegistrationsActionTypes.EDIT:
       return {
         ...state,
         isEdit: true,
         editId: action.payload,
       };
-    case EDIT_CLEAN:
+    case RegistrationsActionTypes.EDIT_CLEAN:
       return { ...state, isEdit: false };
-    case EDIT_USER:
+    case RegistrationsActionTypes.EDIT_USER:
       return {
         ...state,
         dataRegestrationUsersList: [...action.payload],

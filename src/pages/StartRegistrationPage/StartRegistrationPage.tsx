@@ -28,7 +28,7 @@ const StartRegistrationPage: React.FC = () => {
       const result = Papa.parse(readerObj.result, { header: true });
       const arrData = result.data;
       // eslint-disable-next-line no-param-reassign
-      arrData.map((item) => (item.id = nanoid()));
+      arrData.map((item: { id: string }) => (item.id = nanoid()));
       dispatch(registrationsUsersList(arrData));
     };
     readerObj.readAsText(input);

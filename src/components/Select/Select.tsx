@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FieldHookConfig, useField } from 'formik';
 import { country, footballteams, fryingPan } from '../../mocks/options';
 import './Select.scss';
-import { ISelectType } from '../../models/ ISelectType';
+import { ISelectType } from '../../models/ISelectType';
 
 interface Props {
   name: string;

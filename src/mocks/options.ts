@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { ISelectType } from '../models/ ISelectType';
+import { ISelectType } from '../models/ISelectType';
 
 export const country: ISelectType[] = [
   {
