@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
-import { useSelector } from 'react-redux';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import messagesOperator from '../../mocks/messagesOperator';
 import AvatarOperator from '../AvatarOperator/AvatarOperator';
 import arrow from '../../assets/right-arrows.png';
@@ -8,7 +8,7 @@ import './Chat.scss';
 import { IMessagesOperator } from '../../models/IMessagesOperator';
 
 const Chat: React.FC = () => {
-  const isOpen = useSelector((state) => state.chatActive);
+  const isOpen = useTypedSelector((state) => state.chatActive);
 
   const addClassActive = () => {
     if (isOpen) {

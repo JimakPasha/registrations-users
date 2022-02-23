@@ -6,7 +6,7 @@ interface Props {
   codeword: string;
   infoAboutUs: string;
   friendEmail: string;
-  phoneGirlfriend: string;
+  phone: string;
   favorite: string;
 }
 
@@ -16,7 +16,7 @@ const PopoverPersonalData: React.FC<Props> = ({
   codeword,
   infoAboutUs,
   friendEmail,
-  phoneGirlfriend,
+  phone,
   favorite,
 }: Props) => {
   return (
@@ -44,7 +44,7 @@ const PopoverPersonalData: React.FC<Props> = ({
         </li>
         <li className="popover__item">
           <h6 className="popover__title">Номер телефона своей девушки:</h6>
-          <p className="popover__text">{phoneGirlfriend}</p>
+          <p className="popover__text">{phone}</p>
         </li>
         <li className="popover__item">
           <h6 className="popover__title">Любимая футбольная команда:</h6>

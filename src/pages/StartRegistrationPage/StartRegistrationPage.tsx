@@ -13,25 +13,31 @@ import Radio from '../../components/Radio/Radio';
 import Button from '../../components/Button/Button';
 import './StartRegistrationPage.scss';
 
+interface Event<T = EventTarget> {
+  target: T;
+}
+
 const StartRegistrationPage: React.FC = () => {
-  const [loadFile, setLoadFile] = useState();
+  const [loadFile, setLoadFile] = useState<any>();
   const [errorEmptyList, setErrorEmptyList] = useState<boolean>(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const upLoad = (e: React.FormEvent<HTMLInputElement>) => {
-    dispatch(deleteUsersList());
-    const input = e.target.files[0];
-    // eslint-disable-next-line prefer-const
-    let readerObj = new FileReader();
-    readerObj.onload = function parse() {
-      const result = Papa.parse(readerObj.result, { header: true });
-      const arrData = result.data;
-      // eslint-disable-next-line no-param-reassign
-      arrData.map((item: { id: string }) => (item.id = nanoid()));
-      dispatch(registrationsUsersList(arrData));
-    };
-    readerObj.readAsText(input);
+  const upLoad = (e: Event<HTMLInputElement>) => {
+    if (e.target.files) {
+      dispatch(deleteUsersList());
+      const input = e.target.files[0];
+      // eslint-disable-next-line prefer-const
+      let readerObj = new FileReader();
+      readerObj.onload = function parse() {
+        const result = Papa.parse(readerObj.result, { header: true });
+        const arrData = result.data;
+        // eslint-disable-next-line no-param-reassign
+        arrData.map((item: { id: string }) => (item.id = nanoid()));
+        dispatch(registrationsUsersList(arrData));
+      };
+      readerObj.readAsText(input);
+    }
   };
 
   return (
@@ -90,8 +96,9 @@ const StartRegistrationPage: React.FC = () => {
                     id="csv-uploads"
                     type="file"
                     accept=".csv"
-                    onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                      setLoadFile(upLoad(e));
+                    onChange={(e: Event<HTMLInputElement>) => {
+                      upLoad(e);
+                      setLoadFile(e.target.files);
                       setErrorEmptyList(false);
                     }}
                     value={loadFile}

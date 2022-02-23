@@ -1,19 +1,21 @@
 import * as yup from 'yup';
 
-const dateValidate = (value) => {
+const dateValidate = (
+  value: string | undefined
+): boolean | yup.ValidationError | Promise<boolean | yup.ValidationError> => {
   if (value) {
     const arr = value.split('/');
     if (
-      arr[0] < 32 &&
-      arr[1] < 13 &&
-      arr[2] <= new Date().getFullYear() &&
-      arr[2] > +String(new Date().getFullYear() - 120)
+      +arr[0] < 32 &&
+      +arr[1] < 13 &&
+      +arr[2] <= new Date().getFullYear() &&
+      +arr[2] > +String(new Date().getFullYear() - 120)
     ) {
       return true;
     }
     return false;
   }
-  return null;
+  return false; // todo!!! return null
 };
 
 const validationSchema = yup.object({

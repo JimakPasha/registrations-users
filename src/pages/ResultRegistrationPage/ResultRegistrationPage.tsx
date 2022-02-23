@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { collection, addDoc, getDocs } from 'firebase/firestore/lite';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { db } from '../../firebase.config';
 import { edit, editClean, registrationsUser } from '../../redux/actions';
 import Button from '../../components/Button/Button';
@@ -10,6 +11,7 @@ import PopoverPersonalData from '../../components/PopoverPersonalData/PopoverPer
 import PopoverCard from '../../components/PopoverCard/PopoverCard';
 import titleConstant from '../../constants/TitleConstant';
 import './ResultRegistrationPage.scss';
+import { IUser } from '../../models/IUser';
 
 const ResultRegistrationPage: React.FC = () => {
   const [popoverPersonalData, setPopoverPersonalData] =
@@ -22,15 +24,15 @@ const ResultRegistrationPage: React.FC = () => {
     dispatch(editClean());
   }, [dispatch]);
 
-  const dataUser = useSelector(
+  const dataUser = useTypedSelector(
     (state) => state.dataRegestration.dataRegestration
   );
 
-  const dataUsersList = useSelector(
+  const dataUsersList = useTypedSelector(
     (state) => state.dataRegestration.dataRegestrationUsersList
   );
 
-  const registrationMethod = useSelector(
+  const registrationMethod = useTypedSelector(
     (state) => state.dataRegestration.registrationMethod
   );
 
@@ -50,7 +52,7 @@ const ResultRegistrationPage: React.FC = () => {
     setPopoverCard(false);
   };
 
-  const editData = (id) => {
+  const editData = (id: string) => {
     dispatch(edit(id));
     history.push('/registration/personal');
   };
@@ -70,10 +72,14 @@ const ResultRegistrationPage: React.FC = () => {
     });
   };
 
-  const sortList = (e) => {
+  const sortList = (
+    e:
+      | React.MouseEvent<HTMLUListElement>
+      | React.KeyboardEvent<HTMLUListElement>
+  ) => {
     const key = titleConstant[e.target.innerHTML];
     if (key) {
-      const newArr = dataUsersList.sort((a, b) => {
+      const newArr = dataUsersList.sort((a: any, b: any) => {
         return a[key] > b[key] ? 1 : -1;
       });
       dispatch(registrationsUser(newArr));
@@ -174,7 +180,15 @@ const ResultRegistrationPage: React.FC = () => {
             </>
           ) : (
             dataUsersList.map(
-              ({ id, firstName, surName, patronymic, sex, date, country }) => {
+              ({
+                id,
+                firstName,
+                surName,
+                patronymic,
+                sex,
+                date,
+                country,
+              }: IUser) => {
                 return (
                   <ul className="table__row" key={id}>
                     <li className="table__item table__item-user name">

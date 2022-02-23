@@ -1,12 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { chatOn, chatOff } from '../../redux/actions';
 import AvatarOperator from '../AvatarOperator/AvatarOperator';
 import './ButtonChat.scss';
 
 const ButtonChat: React.FC = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.chatActive);
+  const isOpen = useTypedSelector((state) => state.chatActive);
 
   const handleClick = () => {
     if (isOpen) {

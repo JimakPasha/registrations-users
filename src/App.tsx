@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useTypedSelector } from './hooks/useTypedSelector';
 import Header from './components/Header/Header';
 import AuthenticationPage from './pages/AuthenticationPage/AuthenticationPage';
 import StartRegistrationPage from './pages/StartRegistrationPage/StartRegistrationPage';
@@ -16,7 +16,7 @@ import './styles/global.scss';
 import './styles/media.scss';
 
 const App: React.FC = () => {
-  const authentication = useSelector((state) => state.authentication);
+  const authentication = useTypedSelector((state) => state.authentication);
 
   return (
     <>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import validationSchema from './ValidationSchemaPersonRegistration';
 import { registrationsUser, editUser } from '../../redux/actions';
 import Input from '../../components/Input/Input';
@@ -15,13 +16,13 @@ import './PersonRegistrationPage.scss';
 const PersonRegistrationPage: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const isEdit = useSelector((state) => state.dataRegestration.isEdit);
-  const editId = useSelector((state) => state.dataRegestration.editId);
-  const users = useSelector(
+  const isEdit = useTypedSelector((state) => state.dataRegestration.isEdit);
+  const editId = useTypedSelector((state) => state.dataRegestration.editId);
+  const users = useTypedSelector(
     (state) => state.dataRegestration.dataRegestrationUsersList
   );
-  const user = users.find((item) => item.id === editId);
-  const newUsers = users.filter((item) => item.id !== user.id);
+  const user = users.find((item: any) => item.id === editId);
+  const newUsers = users.filter((item: any) => item.id !== user.id);
 
   const defineClassModifierPhone = (value: string): string => {
     if (value.length > 3 && value.replace(/\s+/g, '').substr(0, 4) !== '+375') {
